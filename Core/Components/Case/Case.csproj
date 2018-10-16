@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6D89B638-57CB-45F7-B5F6-3674B4AAE5AE}</ProjectGuid>
+    <ProjectGuid>{DDEDE013-B5AF-485F-AF47-9402AD63F7EE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Umc.VigiFlow.Core.Components.Case</RootNamespace>
@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\Commands\RegisterCaseCommand.cs" />
+    <Compile Include="Application\Repositories\CaseRepository.cs" />
     <Compile Include="Application\Services\RegisterCaseService.cs" />
     <Compile Include="Domain\Models\Case.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -44,8 +45,8 @@
     <Folder Include="Domain\Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Umc.VigiFlow.Core.SharedKernel\SharedKernel.csproj">
-      <Project>{99779acd-5ec7-4746-897d-395e9d233a4c}</Project>
+    <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj">
+      <Project>{99779ACD-5EC7-4746-897D-395E9D233A4C}</Project>
       <Name>SharedKernel</Name>
     </ProjectReference>
   </ItemGroup>

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AFD2349E-9AA1-4143-9DBA-847CD7795B72}</ProjectGuid>
+    <ProjectGuid>{B4E5B716-D065-4435-B5C6-5F6D9B107B7B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Umc.VigiFlow.Core.Ports</RootNamespace>
@@ -34,16 +34,14 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Secondary\ICaseRepository.cs" />
     <Compile Include="Primary\ICommandBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Umc.VigiFlow.Core.Components\Umc.VigiFlow.Core.Components.Case\Components.Case.csproj">
-      <Project>{6d89b638-57cb-45f7-b5f6-3674b4aae5ae}</Project>
-      <Name>Components.Case</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Umc.VigiFlow.Core.SharedKernel\SharedKernel.csproj">
+    <Folder Include="Secondary\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharedKernel\SharedKernel.csproj">
       <Project>{99779acd-5ec7-4746-897d-395e9d233a4c}</Project>
       <Name>SharedKernel</Name>
     </ProjectReference>

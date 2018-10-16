@@ -1,7 +1,6 @@
 ﻿using Umc.VigiFlow.Core.Components.Case.Domain.Models;
-using Umc.VigiFlow.Core.Ports.Secondary;
 
-namespace Umc.VigiFlow.Core.Adapters.CaseRepository
+namespace Umc.VigiFlowAdapters.CaseRepository
 {
     class CaseRepository : ICaseRepository
     {

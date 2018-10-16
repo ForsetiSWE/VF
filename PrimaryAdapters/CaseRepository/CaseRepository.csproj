@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C63772D8-2787-4E4A-B917-F2A59B44BDCC}</ProjectGuid>
+    <ProjectGuid>{C5E1DF16-CBCB-4023-98EA-3EFD8D2A528D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Umc.VigiFlow.Core.Adapters.CaseRepository</RootNamespace>
-    <AssemblyName>Umc.VigiFlow.Core.Adapters.CaseRepository</AssemblyName>
+    <RootNamespace>Umc.VigiFlowAdapters.Secondary.CaseRepository</RootNamespace>
+    <AssemblyName>Umc.VigiFlow.Adapters.Secondary.CaseRepository</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,13 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Umc.VigiFlow.Core.Components\Umc.VigiFlow.Core.Components.Case\Components.Case.csproj">
-      <Project>{6D89B638-57CB-45F7-B5F6-3674B4AAE5AE}</Project>
-      <Name>Components.Case</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Umc.VigiFlow.Core.Ports\Ports.csproj">
-      <Project>{afd2349e-9aa1-4143-9dba-847cd7795b72}</Project>
-      <Name>Ports</Name>
+    <ProjectReference Include="..\..\Core\Components\Case\Case.csproj">
+      <Project>{DDEDE013-B5AF-485F-AF47-9402AD63F7EE}</Project>
+      <Name>Case</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
