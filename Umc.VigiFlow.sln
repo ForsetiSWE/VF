@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "Adapters\Prim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistance", "Adapters\Secondary\Persistance\Persistance.csproj", "{E6EC33AE-B5C2-45B8-9607-2B823BDBEAF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandBus", "Adapters\Secondary\CommandBus\CommandBus\CommandBus.csproj", "{456B86FA-3BA3-43F5-986C-30DBFE21386B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{E6EC33AE-B5C2-45B8-9607-2B823BDBEAF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6EC33AE-B5C2-45B8-9607-2B823BDBEAF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6EC33AE-B5C2-45B8-9607-2B823BDBEAF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{456B86FA-3BA3-43F5-986C-30DBFE21386B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{456B86FA-3BA3-43F5-986C-30DBFE21386B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{456B86FA-3BA3-43F5-986C-30DBFE21386B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{456B86FA-3BA3-43F5-986C-30DBFE21386B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{98241AF7-2B94-4A09-AF8E-C078C1960CA4} = {8F9C393F-E1E8-469F-AE7B-5AFA2CDA7F6D}
 		{84CC331E-1B5B-4A21-A7B2-7E481D28C778} = {98241AF7-2B94-4A09-AF8E-C078C1960CA4}
 		{E6EC33AE-B5C2-45B8-9607-2B823BDBEAF7} = {02A92D08-9CB5-43C4-BE07-91F002C25CA5}
+		{456B86FA-3BA3-43F5-986C-30DBFE21386B} = {02A92D08-9CB5-43C4-BE07-91F002C25CA5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B4EA81DB-1ED4-4B16-8AD1-3F47D173EF11}

@@ -1,5 +1,5 @@
 ﻿using Umc.VigiFlow.Core.Components.Case.Application.Services;
-using Umc.VigiFlow.Core.SharedKernel;
+using Umc.VigiFlow.Core.SharedKernel.Command;
 
 namespace Umc.VigiFlow.Core.Components.Case.Application.Commands
 {

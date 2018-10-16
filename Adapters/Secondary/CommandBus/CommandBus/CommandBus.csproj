@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DDEDE013-B5AF-485F-AF47-9402AD63F7EE}</ProjectGuid>
+    <ProjectGuid>{456B86FA-3BA3-43F5-986C-30DBFE21386B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Umc.VigiFlow.Core.Components.Case</RootNamespace>
-    <AssemblyName>Umc.VigiFlow.Core.Components.Case</AssemblyName>
+    <RootNamespace>Umc.VigiFlow.Adapters.Secondary.CommandBus</RootNamespace>
+    <AssemblyName>Umc.VigiFlow.Adapters.Secondary.CommandBus</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,21 +32,24 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\Commands\RegisterCaseCommand.cs" />
-    <Compile Include="Application\Commands\RegisterCaseCommandHandler.cs" />
-    <Compile Include="Application\Repositories\CaseRepository.cs" />
-    <Compile Include="Application\Services\RegisterCaseService.cs" />
-    <Compile Include="Domain\Models\Case.cs" />
+    <Compile Include="HardCodedCommandHandlerFactory.cs" />
+    <Compile Include="ICommandHandlerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\Ports\" />
-    <Folder Include="Domain\Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj">
+    <ProjectReference Include="..\..\..\..\Core\Components\Case\Case.csproj">
+      <Project>{DDEDE013-B5AF-485F-AF47-9402AD63F7EE}</Project>
+      <Name>Case</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Core\SharedKernel\SharedKernel.csproj">
       <Project>{99779ACD-5EC7-4746-897D-395E9D233A4C}</Project>
       <Name>SharedKernel</Name>
     </ProjectReference>
