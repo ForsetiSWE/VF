@@ -2,7 +2,7 @@
 
 namespace Umc.VigiFlow.Adapters.Secondary.CommandBus
 {
-    interface ICommandHandlerFactory
+    public interface ICommandHandlerFactory
     {
         ICommandHandler<T> GetHandler<T>() where T : ICommand;
     }

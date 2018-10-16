@@ -4,6 +4,6 @@ namespace Umc.VigiFlow.Core.Ports.Primary
 {
     public interface ICommandBus
     {
-        void Send(ICommand command);
+        void Send<T>(T command) where T : ICommand;
     }
 }

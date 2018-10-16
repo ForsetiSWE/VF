@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Umc.VigiFlow.Core.Components.Case.Application.Commands;
 using Umc.VigiFlow.Core.SharedKernel.Command;
