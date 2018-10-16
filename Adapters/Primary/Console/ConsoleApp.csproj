@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>Umc.VigiFlow.Adapters.Primary.ConsoleApp</AssemblyName>
+    <RootNamespace>Umc.VigiFlow.Adapters.Primary.ConsoleApp</RootNamespace>
+  </PropertyGroup>
+
+</Project>

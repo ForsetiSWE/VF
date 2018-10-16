@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Umc.VigiFlow.Core.Adapters.CaseRepository")]
+[assembly: AssemblyTitle("Persistance")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Umc.VigiFlow.Core.Adapters.CaseRepository")]
+[assembly: AssemblyProduct("Persistance")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c63772d8-2787-4e4a-b917-f2a59b44bdcc")]
+[assembly: Guid("e6ec33ae-b5c2-45b8-9607-2b823bdbeaf7")]
 
 // Version information for an assembly consists of the following four values:
 //
