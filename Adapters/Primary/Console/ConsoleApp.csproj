@@ -7,4 +7,8 @@
     <RootNamespace>Umc.VigiFlow.Adapters.Primary.ConsoleApp</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Secondary\CommandBus\CommandBus\CommandBus.csproj" />
+  </ItemGroup>
+
 </Project>

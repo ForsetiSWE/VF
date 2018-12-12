@@ -5,14 +5,14 @@ using Umc.VigiFlow.Core.SharedKernel.Command;
 
 namespace Umc.VigiFlow.Adapters.Secondary.CommandBus
 {
-    class HardCodedCommandHandlerFactory
+    public class HardCodedCommandHandlerFactory : ICommandHandlerFactory
     {
         private static readonly IList<ICommandHandler<ICommand>> Handlers = new List<ICommandHandler<ICommand>>
         {
             new RegisterCaseCommandHandler()
         };
 
-        private ICommandHandler<T> GetHandler<T>() where T : ICommand
+        public ICommandHandler<T> GetHandler<T>() where T : ICommand
         {
             var cmdHandler = (ICommandHandler<T>)Handlers.FirstOrDefault(handler => handler is ICommandHandler<T>);
 

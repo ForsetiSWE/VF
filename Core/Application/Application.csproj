@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B4E5B716-D065-4435-B5C6-5F6D9B107B7B}</ProjectGuid>
+    <ProjectGuid>{8C474509-96BB-4C01-AA21-374F4ECF43D5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Umc.VigiFlow.Core.Ports</RootNamespace>
-    <AssemblyName>Umc.VigiFlow.Core.Ports</AssemblyName>
+    <RootNamespace>Umc.VigiFlow.Application</RootNamespace>
+    <AssemblyName>Umc.VigiFlow.Application</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,17 +32,21 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Primary\ICommandBus.cs" />
+    <Compile Include="Application.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Secondary\IPersistance.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\SharedKernel\SharedKernel.csproj">
-      <Project>{99779acd-5ec7-4746-897d-395e9d233a4c}</Project>
-      <Name>SharedKernel</Name>
+    <ProjectReference Include="..\Ports\Ports.csproj">
+      <Project>{B4E5B716-D065-4435-B5C6-5F6D9B107B7B}</Project>
+      <Name>Ports</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
