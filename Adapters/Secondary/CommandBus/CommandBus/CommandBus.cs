@@ -10,15 +10,15 @@ namespace Umc.VigiFlow.Adapters.Secondary.CommandBus
     {
         #region Setup
 
-        private IEnumerable<ICommandHandler<ICommand>> commandHandlers;
+        private IEnumerable<ICommandHandler> commandHandlers;
 
         #endregion Setup
 
         #region ICommandBus
 
-        public void Send<T>(T command) where T : ICommand
+        public void Send(ICommand command)
         {
-            var handlers = commandHandlers.Where(commandHandler => commandHandler is ICommandHandler<T>).ToList();
+            var handlers = commandHandlers.Where(commandHandler => commandHandler.CanHandle(command)).ToList();
             if (handlers.Count < 1)
             {
                 throw new Exception("no handler registered");
@@ -28,9 +28,9 @@ namespace Umc.VigiFlow.Adapters.Secondary.CommandBus
         }
 
 
-        public void RegisterHandlers(IEnumerable<ICommandHandler<ICommand>> handlers)
+        public void RegisterHandlers(IEnumerable<ICommandHandler> handlers)
         {
-            commandHandlers = (commandHandlers ?? new ICommandHandler<ICommand>[0]).Concat(handlers);
+            commandHandlers = (commandHandlers ?? new ICommandHandler[0]).Concat(handlers);
         }
 
         #endregion ICommandBus

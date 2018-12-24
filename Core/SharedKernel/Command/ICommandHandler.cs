@@ -1,7 +1,8 @@
 ﻿namespace Umc.VigiFlow.Core.SharedKernel.Command
 {
-    public interface ICommandHandler<in TCommand> where TCommand : ICommand
+    public interface ICommandHandler
     {
-        void Handle(TCommand command);
+        bool CanHandle(ICommand command);
+        void Handle(ICommand command);
     }
 }

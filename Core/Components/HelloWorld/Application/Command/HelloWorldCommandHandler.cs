@@ -2,9 +2,13 @@
 
 namespace Umc.VigiFlow.Core.Components.HelloWorld.Application.Command
 {
-    public class HelloWorldCommandHandler : ICommandHandler<HelloWorldCommand>
+    public class HelloWorldCommandHandler : ICommandHandler
     {
-        public void Handle(HelloWorldCommand command)
+        public bool CanHandle(ICommand command)
+        {
+            return command is HelloWorldCommand;
+        }
+        public void Handle(ICommand command)
         {
             
         }

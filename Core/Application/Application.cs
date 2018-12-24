@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Umc.VigiFlow.Application.Extensions;
 using Umc.VigiFlow.Core.Ports.Primary;
 using Umc.VigiFlow.Core.Ports.Secondary;
 using Umc.VigiFlow.Core.SharedKernel.Command;
@@ -39,8 +38,8 @@ namespace Umc.VigiFlow.Application
             // Register internal interfaces
             RegisterInternals(container);
 
-            // Register CommandHandlers
-            RegisterCommandHandlers(commandBus, container);
+            // Register CommandHandlers in command bus
+            RegisterCommandHandlersInCommandBus(commandBus, container);
         }
 
         private static void RegisterAdapters(ICommandBus commandBus, IPersistance persistance, UnityContainer container)
@@ -57,13 +56,11 @@ namespace Umc.VigiFlow.Application
                 coreTypes,
                 WithMappings.FromAllInterfaces,
                 WithName.TypeName);
-
-            //container.RegisterAllTypesForOpenGeneric(typeof(ICommandHandler<>), coreTypes);
         }
 
-        private static void RegisterCommandHandlers(ICommandBus commandBus, UnityContainer container)
+        private static void RegisterCommandHandlersInCommandBus(ICommandBus commandBus, UnityContainer container)
         {
-            var commandHandlers = container.ResolveAll<ICommandHandler<ICommand>>();
+            var commandHandlers = container.ResolveAll<ICommandHandler>();
             commandBus.RegisterHandlers(commandHandlers);
         }
 
