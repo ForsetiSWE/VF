@@ -2,12 +2,16 @@
 
 namespace Umc.VigiFlow.Core.Components.Case.Application.Services
 {
-    class RegisterCaseService
+    class RegisterCaseService : IRegisterCaseService
     {
-        internal void RegisterCase(Domain.Models.Case newCase)
-        {
-            var caseRepository = new CaseRepository();
+        private readonly ICaseRepository caseRepository;
 
+        public RegisterCaseService(ICaseRepository caseRepository)
+        {
+            this.caseRepository = caseRepository;
+        }
+        public void RegisterCase(Domain.Models.Case newCase)
+        {
             caseRepository.Store(newCase);
         }
     }

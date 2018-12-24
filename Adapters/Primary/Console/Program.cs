@@ -1,7 +1,9 @@
 ﻿using System;
 using Umc.VigiFlow.Adapters.Secondary.CommandBus;
+using Umc.VigiFlow.Adapters.Secondary.Persistance;
 using Umc.VigiFlow.Core.Components.Case.Application.Commands;
 using Umc.VigiFlow.Core.Components.Case.Domain.Models;
+using Umc.VigiFlow.Core.Components.HelloWorld.Application.Command;
 
 namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
 {
@@ -9,12 +11,16 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var commandBus = new CommandBus(new HardCodedCommandHandlerFactory());
+            var application = new Application.Application(new CommandBus(), new Persistance());
 
             switch (args[0].ToLower())
             {
                 case "registercase":
-                    commandBus.Send(new RegisterCaseCommand(new Case()));
+                    application.Send(new RegisterCaseCommand(new Case()));
+                    break;
+
+                case "helloworld":
+                    application.Send(new HelloWorldCommand());
                     break;
 
                     default:

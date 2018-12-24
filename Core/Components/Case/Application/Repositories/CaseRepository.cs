@@ -1,6 +1,6 @@
 ﻿namespace Umc.VigiFlow.Core.Components.Case.Application.Repositories
 {
-    class CaseRepository
+    class CaseRepository : ICaseRepository
     {
         public void Store(Domain.Models.Case newCase)
         {

@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DDEDE013-B5AF-485F-AF47-9402AD63F7EE}</ProjectGuid>
+    <ProjectGuid>{859E7345-F7D6-4789-B6DD-D3294C596268}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Umc.VigiFlow.Core.Components.Case</RootNamespace>
-    <AssemblyName>Umc.VigiFlow.Core.Components.Case</AssemblyName>
+    <RootNamespace>Umc.VigiFlow.Core.Components.HelloWorld</RootNamespace>
+    <AssemblyName>Umc.VigiFlow.Core.Components.HelloWorld</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,24 +33,22 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\Commands\RegisterCaseCommand.cs" />
-    <Compile Include="Application\Commands\RegisterCaseCommandHandler.cs" />
-    <Compile Include="Application\Repositories\CaseRepository.cs" />
-    <Compile Include="Application\Repositories\ICaseRepository.cs" />
-    <Compile Include="Application\Services\IRegisterCaseService.cs" />
-    <Compile Include="Application\Services\RegisterCaseService.cs" />
-    <Compile Include="Domain\Models\Case.cs" />
+    <Compile Include="Application\Command\HelloWorldCommand.cs" />
+    <Compile Include="Application\Command\HelloWorldCommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Application\Ports\" />
-    <Folder Include="Domain\Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj">
-      <Project>{99779ACD-5EC7-4746-897D-395E9D233A4C}</Project>
+      <Project>{99779acd-5ec7-4746-897d-395e9d233a4c}</Project>
       <Name>SharedKernel</Name>
     </ProjectReference>
   </ItemGroup>

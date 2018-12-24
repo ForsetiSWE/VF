@@ -41,15 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandBus.cs" />
-    <Compile Include="HardCodedCommandHandlerFactory.cs" />
-    <Compile Include="ICommandHandlerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Core\Components\Case\Case.csproj">
-      <Project>{DDEDE013-B5AF-485F-AF47-9402AD63F7EE}</Project>
-      <Name>Case</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\Core\Ports\Ports.csproj">
       <Project>{B4E5B716-D065-4435-B5C6-5F6D9B107B7B}</Project>
       <Name>Ports</Name>

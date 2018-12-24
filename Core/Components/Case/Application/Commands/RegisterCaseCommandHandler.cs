@@ -1,13 +1,19 @@
-﻿using System;
+﻿using Umc.VigiFlow.Core.Components.Case.Application.Services;
 using Umc.VigiFlow.Core.SharedKernel.Command;
 
 namespace Umc.VigiFlow.Core.Components.Case.Application.Commands
 {
-    public class RegisterCaseCommandHandler : ICommandHandler<ICommand>
+    public class RegisterCaseCommandHandler : ICommandHandler<RegisterCaseCommand>
     {
-        public void Execute(ICommand command)
+        //private readonly IRegisterCaseService registerCaseService;
+
+        public RegisterCaseCommandHandler()
         {
-            throw new NotImplementedException();
+            //this.registerCaseService = registerCaseService;
+        }
+        public void Handle(RegisterCaseCommand command)
+        {
+            //registerCaseService.RegisterCase(command.NewCase);
         }
     }
 }
