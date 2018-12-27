@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "Core\Componen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case", "Core\Components\Case\Case.csproj", "{DDEDE013-B5AF-485F-AF47-9402AD63F7EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTo", "Adapters\Primary\ConsoleAppTo\ConsoleAppTo.csproj", "{7EE98D12-4A2F-4C98-ABE2-5CD934038215}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{DDEDE013-B5AF-485F-AF47-9402AD63F7EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDEDE013-B5AF-485F-AF47-9402AD63F7EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDEDE013-B5AF-485F-AF47-9402AD63F7EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE98D12-4A2F-4C98-ABE2-5CD934038215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE98D12-4A2F-4C98-ABE2-5CD934038215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE98D12-4A2F-4C98-ABE2-5CD934038215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE98D12-4A2F-4C98-ABE2-5CD934038215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{8C474509-96BB-4C01-AA21-374F4ECF43D5} = {E1869585-5474-4BAB-883F-709A21869DB9}
 		{859E7345-F7D6-4789-B6DD-D3294C596268} = {4F9BAD6B-F48E-4A8A-954A-D82C0AFCBBB8}
 		{DDEDE013-B5AF-485F-AF47-9402AD63F7EE} = {4F9BAD6B-F48E-4A8A-954A-D82C0AFCBBB8}
+		{7EE98D12-4A2F-4C98-ABE2-5CD934038215} = {98241AF7-2B94-4A09-AF8E-C078C1960CA4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B4EA81DB-1ED4-4B16-8AD1-3F47D173EF11}

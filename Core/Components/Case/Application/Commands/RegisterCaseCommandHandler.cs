@@ -1,15 +1,21 @@
-﻿using Umc.VigiFlow.Core.SharedKernel.Command;
+﻿using Umc.VigiFlow.Core.Components.Case.Application.Services;
+using Umc.VigiFlow.Core.SharedKernel.Command;
 
 namespace Umc.VigiFlow.Core.Components.Case.Application.Commands
 {
     public class RegisterCaseCommandHandler : ICommandHandler
     {
-        //private readonly IRegisterCaseService registerCaseService;
+        #region Setup
+        private readonly IRegisterCaseService registerCaseService;
 
-        public RegisterCaseCommandHandler()
+        public RegisterCaseCommandHandler(IRegisterCaseService registerCaseService)
         {
-            //this.registerCaseService = registerCaseService;
+            this.registerCaseService = registerCaseService;
         }
+
+        #endregion Setup
+
+        #region ICommandHandler
 
         public bool CanHandle(ICommand command)
         {
@@ -18,7 +24,10 @@ namespace Umc.VigiFlow.Core.Components.Case.Application.Commands
 
         public void Handle(ICommand command)
         {
-            //registerCaseService.RegisterCase(command.NewCase);
+            var registerCaseCommand = (RegisterCaseCommand) command;
+            registerCaseService.RegisterCase(registerCaseCommand.NewCase);
         }
+
+        #endregion ICommandHandler
     }
 }

@@ -35,8 +35,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\Command\HelloWorldCommand.cs" />
-    <Compile Include="Application\Command\HelloWorldCommandHandler.cs" />
+    <Compile Include="Application\Commands\HelloWorldCommand.cs" />
+    <Compile Include="Application\Commands\HelloWorldCommandHandler.cs" />
+    <Compile Include="Application\Services\HelloWorldService.cs" />
+    <Compile Include="Application\Services\IHelloWorldService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

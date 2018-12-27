@@ -1,17 +1,18 @@
 ﻿using System;
 using Umc.VigiFlow.Adapters.Secondary.CommandBus;
 using Umc.VigiFlow.Adapters.Secondary.Persistance;
+using Umc.VigiFlow.Application;
 using Umc.VigiFlow.Core.Components.Case.Application.Commands;
 using Umc.VigiFlow.Core.Components.Case.Domain.Models;
 using Umc.VigiFlow.Core.Components.HelloWorld.Application.Commands;
 
-namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
+namespace ConsoleAppTo
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var application = new Application.Application(new CommandBus(), new Persistance());
+            var application = new Application(new CommandBus(), new Persistance());
 
             switch (args[0].ToLower())
             {
@@ -23,9 +24,9 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
                     application.Send(new HelloWorldCommand());
                     break;
 
-                    default:
-                        Console.WriteLine($"Unknown command: {args[0]}");
-                        break;
+                default:
+                    Console.WriteLine($"Unknown command: {args[0]}");
+                    break;
             }
         }
     }

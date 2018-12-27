@@ -39,7 +39,7 @@ namespace Umc.VigiFlow.Application
             RegisterInternals(container);
 
             // Register CommandHandlers in command bus
-            RegisterCommandHandlersInCommandBus(commandBus, container);
+            RegisterCommandHandlers(commandBus, container);
         }
 
         private static void RegisterAdapters(ICommandBus commandBus, IPersistance persistance, UnityContainer container)
@@ -50,16 +50,29 @@ namespace Umc.VigiFlow.Application
 
         private static void RegisterInternals(UnityContainer container)
         {
-            var coreTypes = AllClasses.FromLoadedAssemblies().Where(a => a.FullName?.StartsWith("Umc.VigiFlow.Core") ?? false).ToList();
+            var internalTypes = AllClasses.FromLoadedAssemblies().Where(a =>
+            {
+                return (a.FullName?.StartsWith("Umc.VigiFlow.Core") ?? false) && a.GetInterfaces().All(i => i.Name != "ICommandHandler" && i.Name != "ICommand");
+            }).ToList();
 
             container.RegisterTypes(
-                coreTypes,
+                internalTypes,
                 WithMappings.FromAllInterfaces,
-                WithName.TypeName);
+                WithName.Default);
         }
 
-        private static void RegisterCommandHandlersInCommandBus(ICommandBus commandBus, UnityContainer container)
+        private static void RegisterCommandHandlers(ICommandBus commandBus, UnityContainer container)
         {
+            var commandHandlerTypes = AllClasses.FromLoadedAssemblies().Where(a =>
+            {
+                return (a.FullName?.StartsWith("Umc.VigiFlow.Core") ?? false) && a.GetInterfaces().Any(i => i.Name == "ICommandHandler" || i.Name == "ICommand");
+            }).ToList();
+
+            container.RegisterTypes(
+                commandHandlerTypes,
+                WithMappings.FromAllInterfaces,
+                WithName.TypeName);
+
             var commandHandlers = container.ResolveAll<ICommandHandler>();
             commandBus.RegisterHandlers(commandHandlers);
         }
