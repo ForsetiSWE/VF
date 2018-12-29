@@ -1,6 +1,6 @@
 ﻿using System;
 using Umc.VigiFlow.Adapters.Secondary.CommandBus;
-using Umc.VigiFlow.Adapters.Secondary.Persistance;
+using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
 using Umc.VigiFlow.Core.Components.Case.Application.Commands;
 using Umc.VigiFlow.Core.Components.Case.Domain.Models;
 using Umc.VigiFlow.Core.Components.HelloWorld.Application.Commands;
@@ -11,7 +11,7 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var application = new Application.Application(new CommandBus(), new Persistance());
+            var application = new Application.Application(new CommandBus(), new Persistance("mongodb://localhost:27017"));
 
             switch (args[0].ToLower())
             {

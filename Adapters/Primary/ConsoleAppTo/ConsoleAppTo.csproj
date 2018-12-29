@@ -53,7 +53,7 @@
       <Name>Case</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\Components\HelloWorld\HelloWorld.csproj">
-      <Project>{859E7345-F7D6-4789-B6DD-D3294C596268}</Project>
+      <Project>{859e7345-f7d6-4789-b6dd-d3294c596268}</Project>
       <Name>HelloWorld</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\Ports\Ports.csproj">
@@ -68,9 +68,9 @@
       <Project>{456B86FA-3BA3-43F5-986C-30DBFE21386B}</Project>
       <Name>CommandBus</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Secondary\Persistance\Persistance.csproj">
+    <ProjectReference Include="..\..\Secondary\MongoDBPersistance\MongoDBPersistance.csproj">
       <Project>{E6EC33AE-B5C2-45B8-9607-2B823BDBEAF7}</Project>
-      <Name>Persistance</Name>
+      <Name>MongoDBPersistance</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -48,6 +48,10 @@
     <Folder Include="Domain\Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Ports\Ports.csproj">
+      <Project>{B4E5B716-D065-4435-B5C6-5F6D9B107B7B}</Project>
+      <Name>Ports</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj">
       <Project>{99779ACD-5EC7-4746-897D-395E9D233A4C}</Project>
       <Name>SharedKernel</Name>

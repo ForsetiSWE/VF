@@ -1,7 +1,9 @@
-﻿namespace Umc.VigiFlow.Core.Ports.Secondary
+﻿using System.Collections.Generic;
+
+namespace Umc.VigiFlow.Core.Ports.Secondary
 {
     public interface IPersistance
     {
-        T Store<T>(T item);
+        void Store<T>(IEnumerable<T> items);
     }
 }
