@@ -1,4 +1,4 @@
-﻿namespace Umc.VigiFlow.Core.SharedKernel.Command
+﻿namespace Umc.VigiFlow.Core.SharedKernel.Commands
 {
     public interface ICommandHandler
     {

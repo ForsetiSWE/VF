@@ -1,7 +1,6 @@
 ﻿using System.Linq;
-using Umc.VigiFlow.Core.Ports.Primary;
 using Umc.VigiFlow.Core.Ports.Secondary;
-using Umc.VigiFlow.Core.SharedKernel.Command;
+using Umc.VigiFlow.Core.SharedKernel.Commands;
 using Unity;
 using Unity.RegistrationByConvention;
 
@@ -13,10 +12,10 @@ namespace Umc.VigiFlow.Application
 
         private readonly ICommandBus commandBus;
 
-        public Application(ICommandBus commandBus, IPersistance persistance)
+        public Application(ICommandBus commandBus, IPersistance persistance, IEventBus eventBus)
         {
             this.commandBus = commandBus;
-            SetupDI(commandBus, persistance);
+            SetupDI(commandBus, persistance, eventBus);
         }
 
         #endregion Setup
@@ -28,12 +27,12 @@ namespace Umc.VigiFlow.Application
 
         #region Private
 
-        private static void SetupDI(ICommandBus commandBus, IPersistance persistance)
+        private static void SetupDI(ICommandBus commandBus, IPersistance persistance, IEventBus eventBus)
         {
             var container = new UnityContainer();
 
             // Register Adapters provided to application
-            RegisterAdapters(commandBus, persistance, container);
+            RegisterAdapters(container, commandBus, persistance, eventBus);
 
             // Register internal interfaces
             RegisterInternals(container);
@@ -42,10 +41,11 @@ namespace Umc.VigiFlow.Application
             RegisterCommandHandlers(commandBus, container);
         }
 
-        private static void RegisterAdapters(ICommandBus commandBus, IPersistance persistance, UnityContainer container)
+        private static void RegisterAdapters(UnityContainer container, ICommandBus commandBus, IPersistance persistance, IEventBus eventBus)
         {
             container.RegisterInstance(commandBus);
             container.RegisterInstance(persistance);
+            container.RegisterInstance(eventBus);
         }
 
         private static void RegisterInternals(UnityContainer container)

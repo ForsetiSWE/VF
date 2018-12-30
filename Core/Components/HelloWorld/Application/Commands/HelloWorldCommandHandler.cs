@@ -1,5 +1,5 @@
 ﻿using Umc.VigiFlow.Core.Components.HelloWorld.Application.Services;
-using Umc.VigiFlow.Core.SharedKernel.Command;
+using Umc.VigiFlow.Core.SharedKernel.Commands;
 
 namespace Umc.VigiFlow.Core.Components.HelloWorld.Application.Commands
 {

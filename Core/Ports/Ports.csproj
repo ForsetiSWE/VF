@@ -34,11 +34,14 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Primary\ICommandBus.cs" />
+    <Compile Include="Secondary\ICommandBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Secondary\IEventBus.cs" />
     <Compile Include="Secondary\IPersistance.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Primary\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharedKernel\SharedKernel.csproj">
       <Project>{99779acd-5ec7-4746-897d-395e9d233a4c}</Project>

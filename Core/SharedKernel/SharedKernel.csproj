@@ -34,8 +34,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command\ICommand.cs" />
-    <Compile Include="Command\ICommandHandler.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\ICommandHandler.cs" />
+    <Compile Include="Events\EventManager.cs" />
+    <Compile Include="Events\DomainEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

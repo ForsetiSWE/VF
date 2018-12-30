@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="Application\Commands\RegisterCaseCommand.cs" />
     <Compile Include="Application\Commands\RegisterCaseCommandHandler.cs" />
+    <Compile Include="Application\Events\CaseRegistreredDomainEvent.cs" />
     <Compile Include="Application\Repositories\CaseRepository.cs" />
     <Compile Include="Application\Repositories\ICaseRepository.cs" />
     <Compile Include="Application\Services\IRegisterCaseService.cs" />

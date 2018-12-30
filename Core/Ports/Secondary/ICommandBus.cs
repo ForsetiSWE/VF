@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Umc.VigiFlow.Core.SharedKernel.Command;
+using Umc.VigiFlow.Core.SharedKernel.Commands;
 
-namespace Umc.VigiFlow.Core.Ports.Primary
+namespace Umc.VigiFlow.Core.Ports.Secondary
 {
     public interface ICommandBus
     {

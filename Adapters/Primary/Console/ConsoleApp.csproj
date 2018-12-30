@@ -13,6 +13,7 @@
     <ProjectReference Include="..\..\..\Core\Components\HelloWorld\HelloWorld.csproj" />
     <ProjectReference Include="..\..\Secondary\CommandBus\CommandBus\CommandBus.csproj" />
     <ProjectReference Include="..\..\Secondary\MongoDBPersistance\MongoDBPersistance.csproj" />
+    <ProjectReference Include="..\..\Secondary\SimpleEventBus\SimpleEventBus.csproj" />
   </ItemGroup>
 
 </Project>

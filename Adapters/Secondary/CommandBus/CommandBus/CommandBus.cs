@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Umc.VigiFlow.Core.Ports.Primary;
-using Umc.VigiFlow.Core.SharedKernel.Command;
+using Umc.VigiFlow.Core.Ports.Secondary;
+using Umc.VigiFlow.Core.SharedKernel.Commands;
 
 namespace Umc.VigiFlow.Adapters.Secondary.CommandBus
 {

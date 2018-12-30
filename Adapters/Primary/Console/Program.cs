@@ -1,6 +1,7 @@
 ﻿using System;
 using Umc.VigiFlow.Adapters.Secondary.CommandBus;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
+using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
 using Umc.VigiFlow.Core.Components.Case.Application.Commands;
 using Umc.VigiFlow.Core.Components.Case.Domain.Models;
 using Umc.VigiFlow.Core.Components.HelloWorld.Application.Commands;
@@ -11,16 +12,16 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var application = new Application.Application(new CommandBus(), new Persistance("mongodb://localhost:27017"));
+            var application = new Application.Application(new CommandBus(), new Persistance("mongodb://localhost:27017"), new EventBus());
 
             switch (args[0].ToLower())
             {
                 case "registercase":
-                    application.Send(new RegisterCaseCommand(new Case()));
+                    application.Send(new RegisterCaseCommand(Guid.NewGuid(), new Case()));
                     break;
 
                 case "helloworld":
-                    application.Send(new HelloWorldCommand());
+                    application.Send(new HelloWorldCommand(Guid.NewGuid()));
                     break;
 
                     default:
