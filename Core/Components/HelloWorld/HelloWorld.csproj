@@ -41,7 +41,10 @@
     <Compile Include="Application\Services\IHelloWorldService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Application\Events\" />
+    <Folder Include="Application\Repositories\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj">
       <Project>{99779acd-5ec7-4746-897d-395e9d233a4c}</Project>

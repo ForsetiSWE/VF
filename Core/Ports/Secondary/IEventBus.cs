@@ -5,10 +5,10 @@ namespace Umc.VigiFlow.Core.Ports.Secondary
 {
     public interface IEventBus
     {
-        void Subscribe<T, TArgs>(Action<TArgs> action) where T : EventManager<TArgs>, new()
-            where TArgs : DomainEvent;
+        void Subscribe<T, TEvent>(Action<TEvent> action) where T : EventManager<TEvent>, new()
+            where TEvent : Event;
 
-        void Publish<T, TArgs>(TArgs args) where T : EventManager<TArgs>, new()
-            where TArgs : DomainEvent;
+        void Publish<T, TEvent>(TEvent args) where T : EventManager<TEvent>, new()
+            where TEvent : Event;
     }
 }

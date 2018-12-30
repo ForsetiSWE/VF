@@ -11,16 +11,16 @@ namespace Umc.VigiFlow.Adapters.Secondary.SimpleEventBus
 
         #region IEventBus
 
-        public void Subscribe<T, TArgs>(Action<TArgs> action) where T : EventManager<TArgs>, new() where TArgs : DomainEvent
+        public void Subscribe<T, TEvent>(Action<TEvent> action) where T : EventManager<TEvent>, new() where TEvent : Event
         {
-            var eventManager = GetEventManager<T, TArgs>();
+            var eventManager = GetEventManager<T, TEvent>();
             eventManager.Subscribe(action);
         }
 
-        public void Publish<T, TArgs>(TArgs args) where T : EventManager<TArgs>, new()
-            where TArgs : DomainEvent
+        public void Publish<T, TEvent>(TEvent args) where T : EventManager<TEvent>, new()
+            where TEvent : Event
         {
-            var eventManager = GetEventManager<T, TArgs>();
+            var eventManager = GetEventManager<T, TEvent>();
             eventManager.Publish(args);
         }
 
@@ -28,9 +28,9 @@ namespace Umc.VigiFlow.Adapters.Secondary.SimpleEventBus
 
         #region Private
 
-        private T GetEventManager<T, TArgs>()
-            where T : EventManager<TArgs>, new()
-            where TArgs : DomainEvent
+        private T GetEventManager<T, TEvent>()
+            where T : EventManager<TEvent>, new()
+            where TEvent : Event
         {
             if (eventManagers.ContainsKey(typeof(T)))
             {

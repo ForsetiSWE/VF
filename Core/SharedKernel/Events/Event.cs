@@ -2,16 +2,16 @@
 
 namespace Umc.VigiFlow.Core.SharedKernel.Events
 {
-    public class DomainEvent
+    public class Event
     {
         #region Setup
 
-        private readonly Guid domainEventId;
+        private readonly Guid eventId;
         private readonly Guid commandId;
 
-        public DomainEvent(Guid domainEventId, Guid commandId)
+        public Event(Guid eventId, Guid commandId)
         {
-            this.domainEventId = domainEventId;
+            this.eventId = eventId;
             this.commandId = commandId;
         }
 

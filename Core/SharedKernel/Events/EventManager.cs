@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace Umc.VigiFlow.Core.SharedKernel.Events
 {
-    public abstract class EventManager<TDomainEvent> where TDomainEvent : DomainEvent
+    public abstract class EventManager<TEvent> where TEvent : Event
     {
-        private readonly List<Action<TDomainEvent>> subscribers = new List<Action<TDomainEvent>>();
+        private readonly List<Action<TEvent>> subscribers = new List<Action<TEvent>>();
 
-        public void Subscribe(Action<TDomainEvent> action)
+        public void Subscribe(Action<TEvent> action)
         {
             subscribers.Add(action);
         }
 
-        public void Publish(TDomainEvent domainEvent)
+        public void Publish(TEvent domainEvent)
         {
             foreach (var sub in subscribers)
             {
