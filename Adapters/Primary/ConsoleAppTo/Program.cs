@@ -27,7 +27,10 @@ namespace ConsoleAppTo
                     break;
 
                 case "helloworld":
-                    application.Send(new HelloWorldCommand(Guid.NewGuid()));
+                    // We want to get the hello back
+                    eventBus.Subscribe<HelloWorldEvent>(OnHelloWorld);
+
+                    application.Send(new HelloWorldCommand(Guid.NewGuid(), "hello there"));
                     break;
 
                 default:
@@ -40,6 +43,12 @@ namespace ConsoleAppTo
         {
             var caseRegisteredEvent = (CaseRegisteredEvent) @event;
             Console.WriteLine(caseRegisteredEvent.CaseId);
+        }
+
+        private static void OnHelloWorld(IEvent @event)
+        {
+            var helloWorldEvent = (HelloWorldEvent)@event;
+            Console.WriteLine(helloWorldEvent.HelloWorld);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
                     break;
 
                 case "helloworld":
-                    application.Send(new HelloWorldCommand(Guid.NewGuid()));
+                    application.Send(new HelloWorldCommand(Guid.NewGuid(), "Hi"));
                     break;
 
                     default:
