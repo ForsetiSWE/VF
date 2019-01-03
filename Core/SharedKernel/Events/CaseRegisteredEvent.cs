@@ -2,11 +2,11 @@
 
 namespace Umc.VigiFlow.Core.SharedKernel.Events
 {
-    public class CaseRegistreredEvent : Event
+    public class CaseRegisteredEvent : Event
     {
         public int CaseId { get; }
 
-        public CaseRegistreredEvent(Guid eventId, Guid commandId, int caseId) : base(eventId, commandId)
+        public CaseRegisteredEvent(Guid eventId, Guid commandId, int caseId) : base(eventId, commandId)
         {
             CaseId = caseId;
         }

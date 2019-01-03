@@ -44,7 +44,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\Events\" />
     <Folder Include="Domain\Services\" />
   </ItemGroup>
   <ItemGroup>

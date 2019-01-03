@@ -15,12 +15,14 @@ namespace ConsoleAppTo
         static void Main(string[] args)
         {
             var eventBus = new EventBus();
-            eventBus.Subscribe<CaseRegistreredEvent>(OnCaseRegistrered);
             var application = new Application(new CommandBus(), new Persistance("mongodb://localhost:27017"), eventBus);
 
             switch (args[0].ToLower())
             {
                 case "registercase":
+                    // We want to get the id of the case registered
+                    eventBus.Subscribe<CaseRegisteredEvent>(OnCaseRegistered);
+
                     application.Send(new RegisterCaseCommand(Guid.NewGuid(), new Case()));
                     break;
 
@@ -34,10 +36,10 @@ namespace ConsoleAppTo
             }
         }
 
-        private static void OnCaseRegistrered(IEvent @event)
+        private static void OnCaseRegistered(IEvent @event)
         {
-            var caseRegistreredEvent = (CaseRegistreredEvent) @event;
-            Console.WriteLine(caseRegistreredEvent.CaseId);
+            var caseRegisteredEvent = (CaseRegisteredEvent) @event;
+            Console.WriteLine(caseRegisteredEvent.CaseId);
         }
     }
 }

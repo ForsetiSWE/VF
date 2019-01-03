@@ -26,7 +26,7 @@ namespace Umc.VigiFlow.Core.Components.Case.Application.Services
         {
             caseRepository.Store(newCase);
 
-            eventBus.Publish(new CaseRegistreredEvent(Guid.NewGuid(), Guid.NewGuid(), newCase.Id));
+            eventBus.Publish(new CaseRegisteredEvent(Guid.NewGuid(), Guid.NewGuid(), newCase.Id));
         }
 
         #endregion IRegisterCaseService
