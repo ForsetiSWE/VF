@@ -36,7 +36,6 @@
   <ItemGroup>
     <Compile Include="Application\Commands\RegisterCaseCommand.cs" />
     <Compile Include="Application\Commands\RegisterCaseCommandHandler.cs" />
-    <Compile Include="Application\Events\CaseRegistreredEvent.cs" />
     <Compile Include="Application\Repositories\CaseRepository.cs" />
     <Compile Include="Application\Repositories\ICaseRepository.cs" />
     <Compile Include="Application\Services\IRegisterCaseService.cs" />
@@ -45,6 +44,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Application\Events\" />
     <Folder Include="Domain\Services\" />
   </ItemGroup>
   <ItemGroup>

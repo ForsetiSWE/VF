@@ -1,4 +1,7 @@
-﻿using Umc.VigiFlow.Core.Components.Case.Application.Repositories;
+﻿using System;
+using Umc.VigiFlow.Core.Components.Case.Application.Repositories;
+using Umc.VigiFlow.Core.Ports.Secondary;
+using Umc.VigiFlow.Core.SharedKernel.Events;
 
 namespace Umc.VigiFlow.Core.Components.Case.Application.Services
 {
@@ -7,10 +10,12 @@ namespace Umc.VigiFlow.Core.Components.Case.Application.Services
         #region Setup
 
         private readonly ICaseRepository caseRepository;
+        private readonly IEventBus eventBus;
 
-        public RegisterCaseService(ICaseRepository caseRepository)
+        public RegisterCaseService(ICaseRepository caseRepository, IEventBus eventBus)
         {
             this.caseRepository = caseRepository;
+            this.eventBus = eventBus;
         }
 
         #endregion Setup
@@ -20,6 +25,8 @@ namespace Umc.VigiFlow.Core.Components.Case.Application.Services
         public void RegisterCase(Domain.Models.Case newCase)
         {
             caseRepository.Store(newCase);
+
+            eventBus.Publish(new CaseRegistreredEvent(Guid.NewGuid(), Guid.NewGuid(), newCase.Id));
         }
 
         #endregion IRegisterCaseService

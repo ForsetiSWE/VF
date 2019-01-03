@@ -6,6 +6,7 @@ using Umc.VigiFlow.Application;
 using Umc.VigiFlow.Core.Components.Case.Application.Commands;
 using Umc.VigiFlow.Core.Components.Case.Domain.Models;
 using Umc.VigiFlow.Core.Components.HelloWorld.Application.Commands;
+using Umc.VigiFlow.Core.SharedKernel.Events;
 
 namespace ConsoleAppTo
 {
@@ -14,6 +15,7 @@ namespace ConsoleAppTo
         static void Main(string[] args)
         {
             var eventBus = new EventBus();
+            eventBus.Subscribe<CaseRegistreredEvent>(OnCaseRegistrered);
             var application = new Application(new CommandBus(), new Persistance("mongodb://localhost:27017"), eventBus);
 
             switch (args[0].ToLower())
@@ -30,6 +32,12 @@ namespace ConsoleAppTo
                     Console.WriteLine($"Unknown command: {args[0]}");
                     break;
             }
+        }
+
+        private static void OnCaseRegistrered(IEvent @event)
+        {
+            var caseRegistreredEvent = (CaseRegistreredEvent) @event;
+            Console.WriteLine(caseRegistreredEvent.CaseId);
         }
     }
 }

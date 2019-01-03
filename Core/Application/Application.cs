@@ -52,7 +52,7 @@ namespace Umc.VigiFlow.Application
         {
             var internalTypes = AllClasses.FromLoadedAssemblies().Where(a =>
             {
-                return (a.FullName?.StartsWith("Umc.VigiFlow.Core") ?? false) && a.GetInterfaces().All(i => i.Name != "ICommandHandler" && i.Name != "ICommand");
+                return (a.FullName?.StartsWith("Umc.VigiFlow.Core") ?? false) && a.GetInterfaces().All(i => i.Name != "ICommandHandler" && i.Name != "ICommand" && i.Name != "IEvent");
             }).ToList();
 
             container.RegisterTypes(

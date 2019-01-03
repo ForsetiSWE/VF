@@ -37,8 +37,10 @@
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ICommandHandler.cs" />
+    <Compile Include="Events\CaseRegistreredEvent.cs" />
     <Compile Include="Events\EventManager.cs" />
     <Compile Include="Events\Event.cs" />
+    <Compile Include="Events\IEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

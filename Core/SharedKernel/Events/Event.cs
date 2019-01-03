@@ -2,7 +2,7 @@
 
 namespace Umc.VigiFlow.Core.SharedKernel.Events
 {
-    public class Event
+    public class Event : IEvent
     {
         #region Setup
 
