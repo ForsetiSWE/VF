@@ -1,8 +1,10 @@
-﻿namespace Umc.VigiFlow.Core.Components.Case.Domain.Models
+﻿using System;
+
+namespace Umc.VigiFlow.Core.Components.Case.Domain.Models
 {
     public class Case
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Description { get; set; }
     }
 }
