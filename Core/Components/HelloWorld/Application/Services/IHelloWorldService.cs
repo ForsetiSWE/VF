@@ -1,7 +1,9 @@
-﻿namespace Umc.VigiFlow.Core.Components.HelloWorld.Application.Services
+﻿using System;
+
+namespace Umc.VigiFlow.Core.Components.HelloWorld.Application.Services
 {
     public interface IHelloWorldService
     {
-        void HelloWorld(string helloWorld);
+        void HelloWorld(Guid commandId, string helloWorld);
     }
 }

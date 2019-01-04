@@ -19,9 +19,9 @@ namespace Umc.VigiFlow.Core.Components.HelloWorld.Application.Services
 
         #region IHelloWorldService
 
-        public void HelloWorld(string helloWorld)
+        public void HelloWorld(Guid commandId, string helloWorld)
         {
-            eventBus.Publish(new HelloWorldEvent(Guid.NewGuid(), Guid.NewGuid(), helloWorld));
+            eventBus.Publish(new HelloWorldEvent(Guid.NewGuid(), commandId, helloWorld));
         }
 
         #endregion IHelloWorldService

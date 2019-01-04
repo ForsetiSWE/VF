@@ -6,13 +6,17 @@ namespace Umc.VigiFlow.Core.SharedKernel.Commands
     {
         #region Setup
 
-        private readonly Guid commandId;
-
         public Command(Guid commandId)
         {
-            this.commandId = commandId;
+            CommandId = commandId;
         }
 
         #endregion Setup
+
+        #region ICommand
+
+        public Guid CommandId { get; }
+
+        #endregion ICommand
     }
 }

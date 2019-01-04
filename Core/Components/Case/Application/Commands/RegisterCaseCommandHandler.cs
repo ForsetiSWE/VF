@@ -25,7 +25,7 @@ namespace Umc.VigiFlow.Core.Components.Case.Application.Commands
         public void Handle(ICommand command)
         {
             var registerCaseCommand = (RegisterCaseCommand) command;
-            registerCaseService.RegisterCase(registerCaseCommand.NewCase);
+            registerCaseService.RegisterCase(registerCaseCommand.CommandId, registerCaseCommand.NewCase);
         }
 
         #endregion ICommandHandler

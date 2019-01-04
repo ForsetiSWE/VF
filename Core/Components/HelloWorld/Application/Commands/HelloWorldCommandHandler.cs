@@ -26,7 +26,7 @@ namespace Umc.VigiFlow.Core.Components.HelloWorld.Application.Commands
         public void Handle(ICommand command)
         {
             var helloWorldCommand = (HelloWorldCommand)command;
-            helloWorldService.HelloWorld(helloWorldCommand.HelloWorld);
+            helloWorldService.HelloWorld(helloWorldCommand.CommandId, helloWorldCommand.HelloWorld);
         }
 
         #endregion ICommandHandler

@@ -22,11 +22,11 @@ namespace Umc.VigiFlow.Core.Components.Case.Application.Services
 
         #region IRegisterCaseService
 
-        public void RegisterCase(Domain.Models.Case newCase)
+        public void RegisterCase(Guid commandId, Domain.Models.Case newCase)
         {
             caseRepository.Store(newCase);
 
-            eventBus.Publish(new CaseRegisteredEvent(Guid.NewGuid(), Guid.NewGuid(), newCase.Id));
+            eventBus.Publish(new CaseRegisteredEvent(Guid.NewGuid(), commandId, newCase.Id));
         }
 
         #endregion IRegisterCaseService

@@ -17,20 +17,22 @@ namespace ConsoleAppTo
             var eventBus = new EventBus();
             var application = new Application(new CommandBus(), new Persistance("mongodb://localhost:27017"), eventBus);
 
+            var commandId = Guid.NewGuid();
+
             switch (args[0].ToLower())
             {
                 case "registercase":
                     // We want to get the id of the case registered
                     eventBus.Subscribe<CaseRegisteredEvent>(OnCaseRegistered);
 
-                    application.Send(new RegisterCaseCommand(Guid.NewGuid(), new Case()));
+                    application.Send(new RegisterCaseCommand(commandId, new Case()));
                     break;
 
                 case "helloworld":
                     // We want to get the hello back
                     eventBus.Subscribe<HelloWorldEvent>(OnHelloWorld);
 
-                    application.Send(new HelloWorldCommand(Guid.NewGuid(), "hello there"));
+                    application.Send(new HelloWorldCommand(commandId, "hello there"));
                     break;
 
                 default:
