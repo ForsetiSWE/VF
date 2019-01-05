@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Umc.VigiFlow.Core.Ports.Secondary;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
@@ -18,13 +17,10 @@ namespace Umc.VigiFlow.Adapters.Secondary.CommandBus
 
         public void Send(ICommand command)
         {
-            var handlers = commandHandlers.Where(commandHandler => commandHandler.CanHandle(command)).ToList();
-            if (handlers.Count < 1)
-            {
-                throw new Exception("no handler registered");
-            }
+            // Only ONE handler per command, if in need of several handlers for same command it probably is an event!
+            var commandHandler = commandHandlers.Single(handler => handler.CanHandle(command));
 
-            handlers.ToList().ForEach(commandHandler => commandHandler.Handle(command));
+            commandHandler.Handle(command);
         }
 
 
