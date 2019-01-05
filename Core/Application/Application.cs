@@ -1,8 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using Autofac;
+using Umc.VigiFlow.Core.Components.Case;
+using Umc.VigiFlow.Core.Components.HelloWorld;
 using Umc.VigiFlow.Core.Ports.Secondary;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
-using Unity;
-using Unity.RegistrationByConvention;
 
 namespace Umc.VigiFlow.Application
 {
@@ -12,10 +13,17 @@ namespace Umc.VigiFlow.Application
 
         private readonly ICommandBus commandBus;
 
+        private static IContainer Container { get; set; }
+
         public Application(ICommandBus commandBus, IPersistance persistance, IEventBus eventBus)
         {
             this.commandBus = commandBus;
+
+            // Setup DI
             SetupDI(commandBus, persistance, eventBus);
+
+            // Register command handlers in commandbus
+            RegisterCommandHandlers(commandBus);
         }
 
         #endregion Setup
@@ -29,52 +37,35 @@ namespace Umc.VigiFlow.Application
 
         private static void SetupDI(ICommandBus commandBus, IPersistance persistance, IEventBus eventBus)
         {
-            var container = new UnityContainer();
+            var builder = new ContainerBuilder();
 
-            // Register Adapters provided to application
-            RegisterAdapters(container, commandBus, persistance, eventBus);
+            RegisterAdapters(commandBus, persistance, eventBus, builder);
+            RegisterComponentModules(builder);
 
-            // Register internal interfaces
-            RegisterInternals(container);
-
-            // Register CommandHandlers in command bus
-            RegisterCommandHandlers(commandBus, container);
+            Container = builder.Build();
         }
 
-        private static void RegisterAdapters(UnityContainer container, ICommandBus commandBus, IPersistance persistance, IEventBus eventBus)
+        private static void RegisterCommandHandlers(ICommandBus commandBus)
         {
-            container.RegisterInstance(commandBus);
-            container.RegisterInstance(persistance);
-            container.RegisterInstance(eventBus);
-        }
-
-        private static void RegisterInternals(UnityContainer container)
-        {
-            var internalTypes = AllClasses.FromLoadedAssemblies().Where(a =>
+            using (var scope = Container.BeginLifetimeScope())
             {
-                return (a.FullName?.StartsWith("Umc.VigiFlow.Core") ?? false) && a.GetInterfaces().All(i => i.Name != "ICommandHandler" && i.Name != "ICommand" && i.Name != "IEvent");
-            }).ToList();
-
-            container.RegisterTypes(
-                internalTypes,
-                WithMappings.FromAllInterfaces,
-                WithName.Default);
+                var commandHandlers = scope.Resolve<IEnumerable<ICommandHandler>>();
+                commandBus.RegisterHandlers(commandHandlers);
+            }
         }
 
-        private static void RegisterCommandHandlers(ICommandBus commandBus, UnityContainer container)
+        private static void RegisterComponentModules(ContainerBuilder builder)
         {
-            var commandHandlerTypes = AllClasses.FromLoadedAssemblies().Where(a =>
-            {
-                return (a.FullName?.StartsWith("Umc.VigiFlow.Core") ?? false) && a.GetInterfaces().Any(i => i.Name == "ICommandHandler" || i.Name == "ICommand");
-            }).ToList();
+            builder.RegisterModule(new CaseAutofacModule());
+            builder.RegisterModule(new HelloWorldAutofacModule());
+        }
 
-            container.RegisterTypes(
-                commandHandlerTypes,
-                WithMappings.FromAllInterfaces,
-                WithName.TypeName);
-
-            var commandHandlers = container.ResolveAll<ICommandHandler>();
-            commandBus.RegisterHandlers(commandHandlers);
+        private static void RegisterAdapters(ICommandBus commandBus, IPersistance persistance, IEventBus eventBus,
+            ContainerBuilder builder)
+        {
+            builder.RegisterInstance(commandBus).As<ICommandBus>();
+            builder.RegisterInstance(persistance).As<IPersistance>();
+            builder.RegisterInstance(eventBus).As<IEventBus>();
         }
 
         #endregion Private
