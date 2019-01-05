@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
@@ -39,6 +42,7 @@
     <Compile Include="Application\Commands\HelloWorldCommandHandler.cs" />
     <Compile Include="Application\Services\HelloWorldService.cs" />
     <Compile Include="Application\Services\IHelloWorldService.cs" />
+    <Compile Include="HelloWorldAutofacModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +59,9 @@
       <Project>{99779acd-5ec7-4746-897d-395e9d233a4c}</Project>
       <Name>SharedKernel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

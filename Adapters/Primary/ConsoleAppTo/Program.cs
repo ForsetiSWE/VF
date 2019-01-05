@@ -19,7 +19,7 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleAppTo
             switch (args[0].ToLower())
             {
                 case "registercase":
-                    application.Send(new RegisterCaseCommand(commandId, new Case()));
+                    application.Send(new RegisterCaseCommand(commandId, new Case { Description = args[1] }));
                     break;
 
                 case "helloworld":
