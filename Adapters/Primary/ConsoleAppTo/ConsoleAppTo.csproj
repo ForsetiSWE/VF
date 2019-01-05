@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7EE98D12-4A2F-4C98-ABE2-5CD934038215}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleAppTo</RootNamespace>
-    <AssemblyName>ConsoleAppTo</AssemblyName>
+    <RootNamespace>Umc.VigiFlow.Adapters.Primary.ConsoleAppTo</RootNamespace>
+    <AssemblyName>Umc.VigiFlow.Adapters.Primary.ConsoleAppTo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
