@@ -24,9 +24,6 @@ namespace Umc.VigiFlow.Core.Components.HelloWorldComponent
         private static void RegisterCommands(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterType<HelloWorldCommandHandler>().As<ICommandHandler<HelloWorldCommand>>();
-            // Register All ICommandHandler<> implemantations
-            //containerBuilder.RegisterAssemblyTypes(typeof(HelloWorldCommandHandler).Assembly)
-            //    .AsClosedTypesOf(typeof(ICommandHandler<>)).AsImplementedInterfaces();
         }
 
         #endregion Private

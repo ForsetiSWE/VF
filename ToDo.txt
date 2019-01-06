@@ -7,11 +7,12 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 + One Handler per command
 + possible to remove ICommandHandler.CanHandle?
 + .Net Core
++ Decorator for commandbus
 
-- What can be made internal when using autofac?
 - Validation (FluentValidation?)
 - Audit
 - Authentication
 - Authorization
 - Idempotent commands (should only run once)
 - ConnectionString from config instead of hardcoded in applications
+- What can be made internal when using autofac?

@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus.Behaviors;
 using Umc.VigiFlow.Core.Ports;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
 
@@ -23,7 +24,11 @@ namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus
         {
             var commandHandler = componentContext.Resolve<ICommandHandler<TCommand>>();
 
-            commandHandler.Handle(command);
+            // Add behaviors
+            var loggingBehavior = new LoggingBehavior<TCommand>(commandHandler);
+
+            // Handle
+            loggingBehavior.Handle(command);
         }
 
         #endregion ICommandBus
