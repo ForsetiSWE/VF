@@ -10,6 +10,8 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 + Decorator for commandbus
 + Logger port to be used in LoggingBehavior
 
+- Remove Case model from RegisterCaseCommand, add domain logic to set initial date and most resent date
+- Add AmendCaseCommand / FollowUpCaseCommand, should have domain logic to change dates accordingly
 - Validation (FluentValidation?)
 - Audit
 - Authentication
