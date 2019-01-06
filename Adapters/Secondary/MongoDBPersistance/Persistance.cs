@@ -9,7 +9,7 @@ namespace Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance
         #region Setup
 
         private readonly string connectionString;
-
+        
         public Persistance(string connectionString)
         {
             this.connectionString = connectionString;

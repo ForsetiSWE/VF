@@ -8,8 +8,8 @@ namespace Umc.VigiFlow.Core.VigiFlowCore
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterModule(new CaseAutofacModule());
-            builder.RegisterModule(new HelloWorldAutofacModule());
+            builder.RegisterModule<CaseAutofacModule>();
+            builder.RegisterModule<HelloWorldAutofacModule>();
         }
     }
 }

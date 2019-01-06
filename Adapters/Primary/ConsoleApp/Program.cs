@@ -62,7 +62,10 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
         {
             containerBuilder.RegisterModule<CommandBusAutofacModule>();
             containerBuilder.RegisterModule<EventBusAutofacModule>();
-            containerBuilder.RegisterModule<MongoDBPersistanceAutofacModule>();
+            containerBuilder.RegisterModule(new MongoDBPersistanceAutofacModule
+            {
+                ConnectionString = "mongodb://localhost:27017"
+            });
         }
 
         #endregion Private
