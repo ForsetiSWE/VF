@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using MongoDB.Driver;
-using Umc.VigiFlow.Core.Ports.Secondary;
+using Umc.VigiFlow.Core.Ports;
 
 namespace Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance
 {

@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using Umc.VigiFlow.Core.Components.Case;
-using Umc.VigiFlow.Core.Components.HelloWorld;
+using Umc.VigiFlow.Core.Components.CaseComponent;
+using Umc.VigiFlow.Core.Components.HelloWorldComponent;
 
 namespace Umc.VigiFlow.Core.VigiFlowCore
 {

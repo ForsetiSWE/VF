@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Umc.VigiFlow.Core.Ports.Secondary;
+using Umc.VigiFlow.Core.Ports;
 using Umc.VigiFlow.Core.SharedKernel.Events;
 
 namespace Umc.VigiFlow.Adapters.Secondary.SimpleEventBus

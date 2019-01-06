@@ -3,10 +3,10 @@ using Autofac;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
 using Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus;
 using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
-using Umc.VigiFlow.Core.Components.Case.Application.Commands;
-using Umc.VigiFlow.Core.Components.Case.Domain.Models;
-using Umc.VigiFlow.Core.Components.HelloWorld.Application.Commands;
-using Umc.VigiFlow.Core.Ports.Secondary;
+using Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands;
+using Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models;
+using Umc.VigiFlow.Core.Components.HelloWorldComponent.Application.Commands;
+using Umc.VigiFlow.Core.Ports;
 using Umc.VigiFlow.Core.VigiFlowCore;
 
 namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp

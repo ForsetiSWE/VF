@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using Umc.VigiFlow.Core.Components.Case.Application.Commands;
-using Umc.VigiFlow.Core.Components.Case.Domain.Models;
-using Umc.VigiFlow.Core.Ports.Secondary;
+using Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands;
+using Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models;
+using Umc.VigiFlow.Core.Ports;
 
 namespace Umc.VigiFlow.Adapters.Primary.APIApp.Controllers
 {

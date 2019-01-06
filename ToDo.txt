@@ -6,8 +6,8 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 + AutoFac as DI?
 + One Handler per command
 + possible to remove ICommandHandler.CanHandle?
++ .Net Core
 
-- .Net Core
 - What can be made internal when using autofac?
 - Validation (FluentValidation?)
 - Audit

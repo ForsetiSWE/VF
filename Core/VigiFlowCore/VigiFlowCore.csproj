@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Components\Case\Case.csproj" />
-    <ProjectReference Include="..\Components\HelloWorld\HelloWorld.csproj" />
+    <ProjectReference Include="..\Components\CaseComponent\CaseComponent.csproj" />
+    <ProjectReference Include="..\Components\HelloWorldComponent\HelloWorldComponent.csproj" />
   </ItemGroup>
 
   <ItemGroup>

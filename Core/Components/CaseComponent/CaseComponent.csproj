@@ -2,16 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>Umc.VigiFlow.Adapters.Secondary.SimpleEventBus</AssemblyName>
-    <RootNamespace>Umc.VigiFlow.Adapters.Secondary.SimpleEventBus</RootNamespace>
+    <RootNamespace>Umc.VigiFlow.Core.Components.CaseComponent</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\Services\" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.8.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Ports\Ports.csproj" />
+    <ProjectReference Include="..\..\Ports\Ports.csproj" />
   </ItemGroup>
 
   <ItemGroup>
