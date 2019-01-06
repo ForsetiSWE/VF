@@ -9,6 +9,7 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 + .Net Core
 + Decorator for commandbus
 
+- Logger port to be used in LoggingBehavior
 - Validation (FluentValidation?)
 - Audit
 - Authentication
