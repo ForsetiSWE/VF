@@ -3,7 +3,7 @@ using Umc.VigiFlow.Core.SharedKernel.Commands;
 
 namespace Umc.VigiFlow.Core.Components.HelloWorld.Application.Commands
 {
-    public class HelloWorldCommandHandler : ICommandHandler
+    public class HelloWorldCommandHandler : ICommandHandler<HelloWorldCommand>
     {
         #region Setup
 
@@ -18,14 +18,8 @@ namespace Umc.VigiFlow.Core.Components.HelloWorld.Application.Commands
 
         #region ICommandHandler
 
-        public bool CanHandle(ICommand command)
+        public void Handle(HelloWorldCommand helloWorldCommand)
         {
-            return command is HelloWorldCommand;
-        }
-
-        public void Handle(ICommand command)
-        {
-            var helloWorldCommand = (HelloWorldCommand)command;
             helloWorldService.HelloWorld(helloWorldCommand.CommandId, helloWorldCommand.HelloWorld);
         }
 

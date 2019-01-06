@@ -3,7 +3,7 @@ using Umc.VigiFlow.Core.SharedKernel.Commands;
 
 namespace Umc.VigiFlow.Core.Components.Case.Application.Commands
 {
-    public class RegisterCaseCommandHandler : ICommandHandler
+    public class RegisterCaseCommandHandler : ICommandHandler<RegisterCaseCommand>
     {
         #region Setup
         private readonly IRegisterCaseService registerCaseService;
@@ -17,14 +17,8 @@ namespace Umc.VigiFlow.Core.Components.Case.Application.Commands
 
         #region ICommandHandler
 
-        public bool CanHandle(ICommand command)
+        public void Handle(RegisterCaseCommand registerCaseCommand)
         {
-            return command is RegisterCaseCommand;
-        }
-
-        public void Handle(ICommand command)
-        {
-            var registerCaseCommand = (RegisterCaseCommand) command;
             registerCaseService.RegisterCase(registerCaseCommand.CommandId, registerCaseCommand.NewCase);
         }
 
