@@ -42,6 +42,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ports", "Core\Ports\Ports.c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedKernel", "Core\SharedKernel\SharedKernel.csproj", "{0D65116C-C229-41F3-A3A7-85FC7A155AC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLogger", "Adapters\Secondary\ConsoleLogger\ConsoleLogger.csproj", "{93898836-CC40-412E-825C-E745E6D2CE7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +90,10 @@ Global
 		{0D65116C-C229-41F3-A3A7-85FC7A155AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D65116C-C229-41F3-A3A7-85FC7A155AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D65116C-C229-41F3-A3A7-85FC7A155AC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93898836-CC40-412E-825C-E745E6D2CE7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93898836-CC40-412E-825C-E745E6D2CE7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93898836-CC40-412E-825C-E745E6D2CE7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93898836-CC40-412E-825C-E745E6D2CE7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +114,7 @@ Global
 		{54157E62-618F-4D6F-825C-64722C0CE27D} = {4F9BAD6B-F48E-4A8A-954A-D82C0AFCBBB8}
 		{25C4797B-B1F1-4FEA-89E3-2CCC2B382CEB} = {676A11B9-1512-421A-B9A5-331B71A96DA3}
 		{0D65116C-C229-41F3-A3A7-85FC7A155AC9} = {3F1C83DD-B7EF-4147-B5CB-0711B60F207F}
+		{93898836-CC40-412E-825C-E745E6D2CE7C} = {02A92D08-9CB5-43C4-BE07-91F002C25CA5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B4EA81DB-1ED4-4B16-8AD1-3F47D173EF11}

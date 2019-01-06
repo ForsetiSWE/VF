@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Umc.VigiFlow.Adapters.Secondary.ConsoleLogger;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
 using Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus;
 using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
@@ -50,12 +51,13 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp
 
         private static void RegisterSecondaryAdapters(ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterModule<CommandBusAutofacModule>();
-            containerBuilder.RegisterModule<EventBusAutofacModule>();
+            containerBuilder.RegisterModule<SimpleCommandBusAutofacModule>();
+            containerBuilder.RegisterModule<SimpleEventBusAutofacModule>();
             containerBuilder.RegisterModule(new MongoDBPersistanceAutofacModule
             {
                 ConnectionString = "mongodb://localhost:27017"
             });
+            containerBuilder.RegisterModule<ConsoleLoggerAutofacModule>();
         }
 
         #endregion Private

@@ -1,4 +1,5 @@
 ﻿using System;
+using Umc.VigiFlow.Core.Ports;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
 
 namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus.Behaviors
@@ -8,10 +9,12 @@ namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus.Behaviors
         #region Setup
 
         private readonly ICommandHandler<TCommand> commandHandler;
+        private readonly ILogger logger;
 
-        public LoggingBehavior(ICommandHandler<TCommand> commandHandler)
+        public LoggingBehavior(ICommandHandler<TCommand> commandHandler, ILogger logger)
         {
             this.commandHandler = commandHandler;
+            this.logger = logger;
         }
 
         #endregion Setup
@@ -20,11 +23,11 @@ namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus.Behaviors
 
         public void Handle(TCommand command)
         {
-            Console.WriteLine($"Handling of {command} started");
+            logger.Info($"Handling of {command} started");
 
             commandHandler.Handle(command);
 
-            Console.WriteLine($"Handling of {command} completed");
+            logger.Info($"Handling of {command} completed");
         }
 
         #endregion ICommandHandler

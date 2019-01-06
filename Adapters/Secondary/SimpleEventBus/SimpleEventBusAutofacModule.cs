@@ -3,7 +3,7 @@ using Umc.VigiFlow.Core.Ports;
 
 namespace Umc.VigiFlow.Adapters.Secondary.SimpleEventBus
 {
-    public class EventBusAutofacModule : Module
+    public class SimpleEventBusAutofacModule : Module
     {
         protected override void Load(ContainerBuilder containerBuilder)
         {

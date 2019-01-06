@@ -1,5 +1,6 @@
 ﻿using System;
 using Autofac;
+using Umc.VigiFlow.Adapters.Secondary.ConsoleLogger;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
 using Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus;
 using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
@@ -60,12 +61,13 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
 
         private static void RegisterSecondaryAdapters(ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterModule<CommandBusAutofacModule>();
-            containerBuilder.RegisterModule<EventBusAutofacModule>();
+            containerBuilder.RegisterModule<SimpleCommandBusAutofacModule>();
+            containerBuilder.RegisterModule<SimpleEventBusAutofacModule>();
             containerBuilder.RegisterModule(new MongoDBPersistanceAutofacModule
             {
                 ConnectionString = "mongodb://localhost:27017"
             });
+            containerBuilder.RegisterModule<ConsoleLoggerAutofacModule>();
         }
 
         #endregion Private

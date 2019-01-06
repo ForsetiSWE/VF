@@ -3,7 +3,7 @@ using Umc.VigiFlow.Core.Ports;
 
 namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus
 {
-    public class CommandBusAutofacModule : Module
+    public class SimpleCommandBusAutofacModule : Module
     {
         protected override void Load(ContainerBuilder containerBuilder)
         {

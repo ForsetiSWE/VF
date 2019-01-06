@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>Umc.VigiFlow.Adapters.Secondary.ConsoleLogger</RootNamespace>
+    <AssemblyName>Umc.VigiFlow.Adapters.Secondary.ConsoleLogger</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Ports\Ports.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\..\..\..\.nuget\packages\autofac\4.8.1\lib\netstandard1.1\Autofac.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

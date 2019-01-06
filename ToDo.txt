@@ -8,8 +8,8 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 + possible to remove ICommandHandler.CanHandle?
 + .Net Core
 + Decorator for commandbus
++ Logger port to be used in LoggingBehavior
 
-- Logger port to be used in LoggingBehavior
 - Validation (FluentValidation?)
 - Audit
 - Authentication
