@@ -5,9 +5,9 @@ namespace Umc.VigiFlow.Adapters.Secondary.CommandBus
 {
     public class CommandBusAutofacModule : Module
     {
-        protected override void Load(ContainerBuilder builder)
+        protected override void Load(ContainerBuilder containerBuilder)
         {
-            builder.RegisterType<CommandBus>().As<ICommandBus>().SingleInstance();
+            containerBuilder.RegisterType<CommandBus>().As<ICommandBus>().SingleInstance();
         }
     }
 }

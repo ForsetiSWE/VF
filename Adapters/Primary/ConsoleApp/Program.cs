@@ -32,7 +32,7 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
                     break;
 
                 case "helloworld":
-                    commandBus.Send(new HelloWorldCommand(Guid.NewGuid(), "Hi"));
+                    commandBus.Send(new HelloWorldCommand(Guid.NewGuid(), args[1]));
                     break;
 
                     default:

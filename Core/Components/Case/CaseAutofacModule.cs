@@ -8,30 +8,30 @@ namespace Umc.VigiFlow.Core.Components.Case
 {
     public class CaseAutofacModule : Module
     {
-        protected override void Load(ContainerBuilder builder)
+        protected override void Load(ContainerBuilder containerBuilder)
         {
-            RegisterCommands(builder);
+            RegisterCommands(containerBuilder);
 
-            RegisterServices(builder);
+            RegisterServices(containerBuilder);
 
-            RegisterRepositories(builder);
+            RegisterRepositories(containerBuilder);
         }
 
         #region Private
 
-        private static void RegisterRepositories(ContainerBuilder builder)
+        private static void RegisterRepositories(ContainerBuilder containerBuilder)
         {
-            builder.RegisterType<CaseRepository>().As<ICaseRepository>();
+            containerBuilder.RegisterType<CaseRepository>().As<ICaseRepository>();
         }
 
-        private static void RegisterServices(ContainerBuilder builder)
+        private static void RegisterServices(ContainerBuilder containerBuilder)
         {
-            builder.RegisterType<RegisterCaseService>().As<IRegisterCaseService>();
+            containerBuilder.RegisterType<RegisterCaseService>().As<IRegisterCaseService>();
         }
 
-        private static void RegisterCommands(ContainerBuilder builder)
+        private static void RegisterCommands(ContainerBuilder containerBuilder)
         {
-            builder.RegisterType<RegisterCaseCommandHandler>().As<ICommandHandler>();
+            containerBuilder.RegisterType<RegisterCaseCommandHandler>().As<ICommandHandler>();
         }
 
         #endregion Private

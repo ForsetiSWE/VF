@@ -5,9 +5,9 @@ namespace Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance
 {
     public class MongoDBPersistanceAutofacModule : Module
     {
-        protected override void Load(ContainerBuilder builder)
+        protected override void Load(ContainerBuilder containerBuilder)
         {
-            builder.Register(c => new Persistance("mongodb://localhost:27017")).As<IPersistance>();
+            containerBuilder.Register(c => new Persistance("mongodb://localhost:27017")).As<IPersistance>();
         }
     }
 }

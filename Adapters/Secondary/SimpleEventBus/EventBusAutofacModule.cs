@@ -5,9 +5,9 @@ namespace Umc.VigiFlow.Adapters.Secondary.SimpleEventBus
 {
     public class EventBusAutofacModule : Module
     {
-        protected override void Load(ContainerBuilder builder)
+        protected override void Load(ContainerBuilder containerBuilder)
         {
-            builder.RegisterType<EventBus>().As<IEventBus>().SingleInstance();
+            containerBuilder.RegisterType<EventBus>().As<IEventBus>().SingleInstance();
         }
     }
 }

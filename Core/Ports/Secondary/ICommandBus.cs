@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Umc.VigiFlow.Core.SharedKernel.Commands;
+﻿using Umc.VigiFlow.Core.SharedKernel.Commands;
 
 namespace Umc.VigiFlow.Core.Ports.Secondary
 {

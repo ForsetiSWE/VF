@@ -7,23 +7,23 @@ namespace Umc.VigiFlow.Core.Components.HelloWorld
 {
     public class HelloWorldAutofacModule : Module
     {
-        protected override void Load(ContainerBuilder builder)
+        protected override void Load(ContainerBuilder containerBuilder)
         {
-            RegisterCommands(builder);
+            RegisterCommands(containerBuilder);
 
-            RegisterServices(builder);
+            RegisterServices(containerBuilder);
         }
 
         #region Private
 
-        private static void RegisterServices(ContainerBuilder builder)
+        private static void RegisterServices(ContainerBuilder containerBuilder)
         {
-            builder.RegisterType<HelloWorldService>().As<IHelloWorldService>();
+            containerBuilder.RegisterType<HelloWorldService>().As<IHelloWorldService>();
         }
 
-        private static void RegisterCommands(ContainerBuilder builder)
+        private static void RegisterCommands(ContainerBuilder containerBuilder)
         {
-            builder.RegisterType<HelloWorldCommandHandler>().As<ICommandHandler>();
+            containerBuilder.RegisterType<HelloWorldCommandHandler>().As<ICommandHandler>();
         }
 
         #endregion Private
