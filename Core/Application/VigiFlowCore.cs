@@ -7,7 +7,7 @@ using Umc.VigiFlow.Core.SharedKernel.Commands;
 
 namespace Umc.VigiFlow.Application
 {
-    public class Application
+    public class VigiFlowCore
     {
         #region Setup
 
@@ -15,7 +15,7 @@ namespace Umc.VigiFlow.Application
 
         private static IContainer Container { get; set; }
 
-        public Application(ICommandBus commandBus, IPersistance persistance, IEventBus eventBus)
+        public VigiFlowCore(ICommandBus commandBus, IPersistance persistance, IEventBus eventBus)
         {
             this.commandBus = commandBus;
 

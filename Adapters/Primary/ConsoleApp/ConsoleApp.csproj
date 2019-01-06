@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.7.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Application\Application.csproj" />
     <ProjectReference Include="..\..\..\Core\Components\Case\Case.csproj" />
     <ProjectReference Include="..\..\..\Core\Components\HelloWorld\HelloWorld.csproj" />

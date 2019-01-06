@@ -1,24 +1,25 @@
 ﻿using System;
-using System.Web.Http;
+using Microsoft.AspNetCore.Mvc;
 using Umc.VigiFlow.Adapters.Secondary.CommandBus;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
 using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
+using Umc.VigiFlow.Application;
 using Umc.VigiFlow.Core.Components.Case.Application.Commands;
 using Umc.VigiFlow.Core.Components.Case.Domain.Models;
 
-namespace Umc.VigiFlow.Adapters.Primary.ApiApp.Controllers
+namespace Umc.VigiFlow.Adapters.Primary.APIApp.Controllers
 {
-    [RoutePrefix("case")]
-    public class CaseController : ApiController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CasesController : ControllerBase
     {
-        [Route("")]
+        // POST api/cases
         [HttpPost]
-        public IHttpActionResult RegisterCase([FromBody]string description)
+        public void Post([FromBody] string description)
         {
-            var application = new Application.Application(new CommandBus(), new Persistance("mongodb://localhost:27017"), new EventBus());
+            var application = new VigiFlowCore(new CommandBus(), new Persistance("mongodb://localhost:27017"), new EventBus());
 
             application.Send(new RegisterCaseCommand(Guid.NewGuid(), new Case { Description = description }));
-            return Ok();
         }
     }
 }
