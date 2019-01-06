@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>Umc.VigiFlow.Core.VigiFlowCore</AssemblyName>
+    <RootNamespace>Umc.VigiFlow.Core.VigiFlowCore</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Components\Case\Case.csproj" />
+    <ProjectReference Include="..\Components\HelloWorld\HelloWorld.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,28 +1,38 @@
 ﻿using System;
+using Autofac;
 using Umc.VigiFlow.Adapters.Secondary.CommandBus;
-using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
-using Umc.VigiFlow.Application;
+using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
 using Umc.VigiFlow.Core.Components.Case.Application.Commands;
 using Umc.VigiFlow.Core.Components.Case.Domain.Models;
 using Umc.VigiFlow.Core.Components.HelloWorld.Application.Commands;
+using Umc.VigiFlow.Core.Ports.Secondary;
+using Umc.VigiFlow.Core.VigiFlowCore;
 
 namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
 {
     class Program
     {
+        #region Setup
+
+        private static IContainer Container { get; set; }
+
+        #endregion Setup
+
         static void Main(string[] args)
         {
-            var application = new VigiFlowCore(new CommandBus(), new Persistance("mongodb://localhost:27017"), new EventBus());
+            SetupDI();
+
+            var commandBus = Container.Resolve<ICommandBus>();
 
             switch (args[0].ToLower())
             {
                 case "registercase":
-                    application.Send(new RegisterCaseCommand(Guid.NewGuid(), new Case { Description = args[1] }));
+                    commandBus.Send(new RegisterCaseCommand(Guid.NewGuid(), new Case { Description = args[1] }));
                     break;
 
                 case "helloworld":
-                    application.Send(new HelloWorldCommand(Guid.NewGuid(), "Hi"));
+                    commandBus.Send(new HelloWorldCommand(Guid.NewGuid(), "Hi"));
                     break;
 
                     default:
@@ -30,5 +40,31 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
                         break;
             }
         }
+
+        #region Private
+
+        private static void SetupDI()
+        {
+            // Create ContainerBuilder
+            var containerBuilder = new ContainerBuilder();
+
+            // Setup DI for VigiFlowCore
+            containerBuilder.RegisterModule(new VigiFlowCoreAutofacModule());
+
+            // Setup DI for Secondary adapters used
+            RegisterSecondaryAdapters(containerBuilder);
+
+            // Create Container
+            Container = containerBuilder.Build();
+        }
+
+        private static void RegisterSecondaryAdapters(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.RegisterModule<CommandBusAutofacModule>();
+            containerBuilder.RegisterModule<EventBusAutofacModule>();
+            containerBuilder.RegisterModule<MongoDBPersistanceAutofacModule>();
+        }
+
+        #endregion Private
     }
 }

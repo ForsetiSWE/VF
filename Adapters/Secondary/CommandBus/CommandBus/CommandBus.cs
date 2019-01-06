@@ -9,8 +9,12 @@ namespace Umc.VigiFlow.Adapters.Secondary.CommandBus
     {
         #region Setup
 
-        private IEnumerable<ICommandHandler> commandHandlers;
+        private readonly IEnumerable<ICommandHandler> commandHandlers;
 
+        public CommandBus(IEnumerable<ICommandHandler> commandHandlers)
+        {
+            this.commandHandlers = commandHandlers;
+        }
         #endregion Setup
 
         #region ICommandBus
@@ -21,12 +25,6 @@ namespace Umc.VigiFlow.Adapters.Secondary.CommandBus
             var commandHandler = commandHandlers.Single(handler => handler.CanHandle(command));
 
             commandHandler.Handle(command);
-        }
-
-
-        public void RegisterHandlers(IEnumerable<ICommandHandler> handlers)
-        {
-            commandHandlers = (commandHandlers ?? new ICommandHandler[0]).Concat(handlers);
         }
 
         #endregion ICommandBus

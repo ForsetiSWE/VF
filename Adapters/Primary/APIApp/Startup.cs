@@ -1,8 +1,13 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Autofac;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Umc.VigiFlow.Adapters.Secondary.CommandBus;
+using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
+using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
+using Umc.VigiFlow.Core.VigiFlowCore;
 
 namespace Umc.VigiFlow.Adapters.Primary.APIApp
 {
@@ -21,6 +26,15 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
+        public void ConfigureContainer(ContainerBuilder containerBuilder)
+        {
+            // Setup DI for VigiFlowCore
+            containerBuilder.RegisterModule(new VigiFlowCoreAutofacModule());
+
+            // Setup DI for Secondary adapters used
+            RegisterSecondaryAdapters(containerBuilder);
+        }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -31,5 +45,16 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp
 
             app.UseMvc();
         }
+
+        #region Private
+
+        private static void RegisterSecondaryAdapters(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.RegisterModule<CommandBusAutofacModule>();
+            containerBuilder.RegisterModule<EventBusAutofacModule>();
+            containerBuilder.RegisterModule<MongoDBPersistanceAutofacModule>();
+        }
+
+        #endregion Private
     }
 }

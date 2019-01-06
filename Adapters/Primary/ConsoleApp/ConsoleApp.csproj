@@ -8,13 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
     <PackageReference Include="MongoDB.Driver" Version="2.7.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Application\Application.csproj" />
     <ProjectReference Include="..\..\..\Core\Components\Case\Case.csproj" />
     <ProjectReference Include="..\..\..\Core\Components\HelloWorld\HelloWorld.csproj" />
+    <ProjectReference Include="..\..\..\Core\VigiFlowCore\VigiFlowCore.csproj" />
     <ProjectReference Include="..\..\Secondary\CommandBus\CommandBus\CommandBus.csproj" />
     <ProjectReference Include="..\..\Secondary\MongoDBPersistance\MongoDBPersistance.csproj" />
     <ProjectReference Include="..\..\Secondary\SimpleEventBus\SimpleEventBus.csproj" />
