@@ -2,7 +2,7 @@
   "profiles": {
     "ConsoleApp": {
       "commandName": "Project",
-      "commandLineArgs": "registercase \"a description from ConsoleApp\""
+      "commandLineArgs": "registercase \"A description from ConsoleApp\""
     }
   }
 }
