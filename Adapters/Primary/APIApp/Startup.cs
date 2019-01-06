@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Umc.VigiFlow.Adapters.Secondary.CommandBus;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
+using Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus;
 using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
 using Umc.VigiFlow.Core.VigiFlowCore;
 

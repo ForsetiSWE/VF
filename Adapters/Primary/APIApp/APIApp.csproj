@@ -21,8 +21,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Components\Case\Case.csproj" />
     <ProjectReference Include="..\..\..\Core\VigiFlowCore\VigiFlowCore.csproj" />
-    <ProjectReference Include="..\..\Secondary\CommandBus\CommandBus\CommandBus.csproj" />
     <ProjectReference Include="..\..\Secondary\MongoDBPersistance\MongoDBPersistance.csproj" />
+    <ProjectReference Include="..\..\Secondary\SimpleCommandBus\SimpleCommandBus.csproj" />
     <ProjectReference Include="..\..\Secondary\SimpleEventBus\SimpleEventBus.csproj" />
   </ItemGroup>
 

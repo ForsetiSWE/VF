@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <RootNamespace>Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance</RootNamespace>
-    <AssemblyName>Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance</AssemblyName>
+    <RootNamespace>Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus</RootNamespace>
+    <AssemblyName>Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,9 +17,6 @@
   <ItemGroup>
     <Reference Include="Autofac">
       <HintPath>..\..\..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
-    </Reference>
-    <Reference Include="MongoDB.Driver">
-      <HintPath>..\..\..\..\..\..\.nuget\packages\mongodb.driver\2.7.2\lib\netstandard1.5\MongoDB.Driver.dll</HintPath>
     </Reference>
   </ItemGroup>
 

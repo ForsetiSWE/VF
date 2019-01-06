@@ -1,7 +1,7 @@
 ﻿using System;
 using Autofac;
-using Umc.VigiFlow.Adapters.Secondary.CommandBus;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
+using Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus;
 using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
 using Umc.VigiFlow.Core.Components.Case.Application.Commands;
 using Umc.VigiFlow.Core.Components.Case.Domain.Models;

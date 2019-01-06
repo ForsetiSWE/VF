@@ -2,7 +2,7 @@
 using Umc.VigiFlow.Core.Ports.Secondary;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
 
-namespace Umc.VigiFlow.Adapters.Secondary.CommandBus
+namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus
 {
     public class CommandBus : ICommandBus
     {

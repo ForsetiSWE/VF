@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using Umc.VigiFlow.Core.Ports.Secondary;
 
-namespace Umc.VigiFlow.Adapters.Secondary.CommandBus
+namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus
 {
     public class CommandBusAutofacModule : Module
     {
