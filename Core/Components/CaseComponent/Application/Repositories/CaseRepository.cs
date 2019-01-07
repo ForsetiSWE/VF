@@ -21,12 +21,12 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Repositories
 
         public void Store(Case newCase)
         {
-            persistance.Store(newCase, newCase.Id);
+            persistance.Store(newCase);
         }
 
-        public Case Get(Guid caseId)
+        public Case Get(Guid caseId, int revision)
         {
-            return persistance.Get<Case>(caseId);
+            return persistance.Get<Case>(caseId, revision);
         }
 
         #endregion ICaseRepository

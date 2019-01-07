@@ -22,10 +22,10 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Services
 
         #region IAmendCaseService
 
-        public void AmendCase(Guid commandId, Guid caseId, string description)
+        public void AmendCase(Guid commandId, Guid caseId, int revision, string description)
         {
             // Get the case from the repository
-            var existingCase = caseRepository.Get(caseId);
+            var existingCase = caseRepository.Get(caseId, revision);
 
             // Change
             existingCase.ChangeDescription(description);

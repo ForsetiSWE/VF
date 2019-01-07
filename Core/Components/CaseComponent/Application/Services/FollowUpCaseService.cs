@@ -22,10 +22,10 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Services
 
         #region IFollowUpCaseService
 
-        public void FollowUpCase(Guid commandId, Guid caseId, string description, DateTime dateOfMostRecentInformation)
+        public void FollowUpCase(Guid commandId, Guid caseId, int revision, string description, DateTime dateOfMostRecentInformation)
         {
             // Get the case from the repository
-            var existingCase = caseRepository.Get(caseId);
+            var existingCase = caseRepository.Get(caseId, revision);
 
             // Change
             existingCase.ChangeDescription(description);

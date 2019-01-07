@@ -18,6 +18,7 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp.Controllers
         public class ChangedCase
         {
             public Guid CaseId { get; set; }
+            public int Revision { get; set; }
             public string Description { get; set; }
             public DateTime DateOfMostRecentInformation { get; set; }
         }
@@ -50,12 +51,12 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp.Controllers
             if (changedCase.DateOfMostRecentInformation != DateTime.MinValue)
             {
                 // We got a date, its an follow-up
-                commandBus.Send(new FollowUpCaseCommand(Guid.NewGuid(), changedCase.CaseId, changedCase.Description, changedCase.DateOfMostRecentInformation));
+                commandBus.Send(new FollowUpCaseCommand(Guid.NewGuid(), changedCase.CaseId, changedCase.Revision, changedCase.Description, changedCase.DateOfMostRecentInformation));
             }
             else
             {
                 // Got no date its an amendment
-                commandBus.Send(new AmendCaseCommand(Guid.NewGuid(), changedCase.CaseId, changedCase.Description));
+                commandBus.Send(new AmendCaseCommand(Guid.NewGuid(), changedCase.CaseId, changedCase.Revision, changedCase.Description));
             }
         }
 

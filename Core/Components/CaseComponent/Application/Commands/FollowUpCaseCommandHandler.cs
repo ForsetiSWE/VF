@@ -19,7 +19,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
 
         public void Handle(FollowUpCaseCommand followUpCaseCommand)
         {
-            followUpCaseService.FollowUpCase(followUpCaseCommand.CommandId, followUpCaseCommand.CaseId, followUpCaseCommand.Description, followUpCaseCommand.DateOfMostRecentInformation);
+            followUpCaseService.FollowUpCase(followUpCaseCommand.CommandId, followUpCaseCommand.CaseId, followUpCaseCommand.Revision, followUpCaseCommand.Description, followUpCaseCommand.DateOfMostRecentInformation);
         }
 
         #endregion ICommandHandler

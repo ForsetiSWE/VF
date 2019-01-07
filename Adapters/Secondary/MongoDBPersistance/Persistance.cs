@@ -1,6 +1,7 @@
 ﻿using System;
 using MongoDB.Driver;
 using Umc.VigiFlow.Core.Ports;
+using Umc.VigiFlow.Core.SharedKernel.BaseModel;
 
 namespace Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance
 {
@@ -19,16 +20,26 @@ namespace Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance
 
         #region IPersistance
 
-        public void Store<T>(T item, Guid id)
+        public void Store<T>(T entity) where T : BaseEntity
         {
-            var filter = Builders<T>.Filter.Eq("_id", id);
+            var filter = Builders<T>.Filter.Eq("_id", entity.Id);
 
-            GetCollection<T>().ReplaceOne(filter, item, new UpdateOptions { IsUpsert = true});
+            if (entity.Revision > 0)
+            {
+                // Not first revision, add filter for revision
+                filter = filter & Builders<T>.Filter.Eq("Revision", entity.Revision);
+            }
+
+            // Move to next revision for entitiy
+            entity.NextRevision();
+
+            GetCollection<T>().ReplaceOne(filter, entity, new UpdateOptions { IsUpsert = true});
         }
 
-        public T Get<T>(Guid id)
+        public T Get<T>(Guid id, int revision)
         {
             var filter = Builders<T>.Filter.Eq("_id", id);
+            filter = filter & Builders<T>.Filter.Eq("Revision", revision);
 
             return GetCollection<T>().Find(filter).Single();
         }

@@ -19,7 +19,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
 
         public void Handle(AmendCaseCommand amendCaseCommand)
         {
-            amendCaseService.AmendCase(amendCaseCommand.CommandId, amendCaseCommand.CaseId, amendCaseCommand.Description);
+            amendCaseService.AmendCase(amendCaseCommand.CommandId, amendCaseCommand.CaseId, amendCaseCommand.Revision, amendCaseCommand.Description);
         }
 
         #endregion ICommandHandler

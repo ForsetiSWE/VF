@@ -32,11 +32,11 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
                     break;
 
                 case "amendcase":
-                    commandBus.Send(new AmendCaseCommand(Guid.NewGuid(), Guid.Parse(args[1]), args[2]));
+                    commandBus.Send(new AmendCaseCommand(Guid.NewGuid(), Guid.Parse(args[1]), int.Parse(args[2]), args[3]));
                     break;
 
                 case "followupcase":
-                    commandBus.Send(new FollowUpCaseCommand(Guid.NewGuid(), Guid.Parse(args[1]), args[2], DateTime.Parse(args[3])));
+                    commandBus.Send(new FollowUpCaseCommand(Guid.NewGuid(), Guid.Parse(args[1]), int.Parse(args[2]), args[3], DateTime.Parse(args[4])));
                     break;
 
                 case "helloworld":
