@@ -20,11 +20,8 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
 
         public void Handle(RegisterCaseCommand registerCaseCommand)
         {
-            var newCase = new Case
-            {
-                Id = registerCaseCommand.CaseId,
-                Description = registerCaseCommand.Description
-            };
+            var newCase = new Case(registerCaseCommand.CaseId, registerCaseCommand.Description, registerCaseCommand.InitialDate);
+
             registerCaseService.RegisterCase(registerCaseCommand.CommandId, newCase);
         }
 

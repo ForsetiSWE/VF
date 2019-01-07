@@ -9,6 +9,12 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp.Controllers
     [ApiController]
     public class CasesController : ControllerBase
     {
+        public class NewCase
+        {
+            public string Description { get; set; }
+            public DateTime InitialDate { get; set; }
+        }
+
         #region Setup
 
         private readonly ICommandBus commandBus;
@@ -24,9 +30,9 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp.Controllers
 
         // POST api/cases
         [HttpPost]
-        public void Post([FromBody] string description)
+        public void Post([FromBody] NewCase newCase)
         {
-            commandBus.Send(new RegisterCaseCommand(Guid.NewGuid(), Guid.NewGuid(), description));
+            commandBus.Send(new RegisterCaseCommand(Guid.NewGuid(), Guid.NewGuid(), newCase.Description, newCase.InitialDate));
         }
 
         #endregion API

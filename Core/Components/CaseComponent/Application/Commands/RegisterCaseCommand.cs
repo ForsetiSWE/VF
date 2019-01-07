@@ -9,11 +9,13 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
 
         public readonly Guid CaseId;
         public readonly string Description;
-        
-        public RegisterCaseCommand(Guid commandId, Guid caseId, string description) : base(commandId)
+        public readonly DateTime InitialDate;
+
+        public RegisterCaseCommand(Guid commandId, Guid caseId, string description, DateTime initialDate) : base(commandId)
         {
             CaseId = caseId;
             Description = description;
+            InitialDate = initialDate;
         }
 
         #endregion Setup

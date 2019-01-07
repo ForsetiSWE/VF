@@ -28,7 +28,7 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
             switch (args[0].ToLower())
             {
                 case "registercase":
-                    commandBus.Send(new RegisterCaseCommand(Guid.NewGuid(), Guid.NewGuid(), args[1]));
+                    commandBus.Send(new RegisterCaseCommand(Guid.NewGuid(), Guid.NewGuid(), args[1], DateTime.Parse(args[2])));
                     break;
 
                 case "helloworld":
