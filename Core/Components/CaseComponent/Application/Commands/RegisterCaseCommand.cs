@@ -7,11 +7,13 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
     {
         #region Setup
 
-        public readonly Domain.Models.Case NewCase;
-
-        public RegisterCaseCommand(Guid commandId, Domain.Models.Case newCase) : base(commandId)
+        public readonly Guid CaseId;
+        public readonly string Description;
+        
+        public RegisterCaseCommand(Guid commandId, Guid caseId, string description) : base(commandId)
         {
-            NewCase = newCase;
+            CaseId = caseId;
+            Description = description;
         }
 
         #endregion Setup

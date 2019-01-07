@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands;
-using Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models;
 using Umc.VigiFlow.Core.Ports;
 
 namespace Umc.VigiFlow.Adapters.Primary.APIApp.Controllers
@@ -27,7 +26,7 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp.Controllers
         [HttpPost]
         public void Post([FromBody] string description)
         {
-            commandBus.Send(new RegisterCaseCommand(Guid.NewGuid(), new Case { Description = description }));
+            commandBus.Send(new RegisterCaseCommand(Guid.NewGuid(), Guid.NewGuid(), description));
         }
 
         #endregion API

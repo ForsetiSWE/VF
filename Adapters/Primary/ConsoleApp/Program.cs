@@ -5,7 +5,6 @@ using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
 using Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus;
 using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
 using Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands;
-using Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models;
 using Umc.VigiFlow.Core.Components.HelloWorldComponent.Application.Commands;
 using Umc.VigiFlow.Core.Ports;
 using Umc.VigiFlow.Core.VigiFlowCore;
@@ -29,7 +28,7 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
             switch (args[0].ToLower())
             {
                 case "registercase":
-                    commandBus.Send(new RegisterCaseCommand(Guid.NewGuid(), new Case { Description = args[1] }));
+                    commandBus.Send(new RegisterCaseCommand(Guid.NewGuid(), Guid.NewGuid(), args[1]));
                     break;
 
                 case "helloworld":

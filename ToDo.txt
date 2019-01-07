@@ -9,8 +9,9 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 + .Net Core
 + Decorator for commandbus
 + Logger port to be used in LoggingBehavior
++ Remove Case model from RegisterCaseCommand
 
-- Remove Case model from RegisterCaseCommand, add domain logic to set initial date and most resent date
+- add domain logic to set initial date and most recent date
 - Add AmendCaseCommand / FollowUpCaseCommand, should have domain logic to change dates accordingly
 - Validation (FluentValidation?)
 - Audit
@@ -19,3 +20,4 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 - Idempotent commands (should only run once)
 - ConnectionString from config instead of hardcoded in applications
 - What can be made internal when using autofac?
+- Is CommandHandler correct place to transform from Command to domain model?

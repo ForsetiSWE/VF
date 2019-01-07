@@ -1,4 +1,5 @@
 ﻿using Umc.VigiFlow.Core.Components.CaseComponent.Application.Services;
+using Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
 
 namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
@@ -19,7 +20,12 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
 
         public void Handle(RegisterCaseCommand registerCaseCommand)
         {
-            registerCaseService.RegisterCase(registerCaseCommand.CommandId, registerCaseCommand.NewCase);
+            var newCase = new Case
+            {
+                Id = registerCaseCommand.CaseId,
+                Description = registerCaseCommand.Description
+            };
+            registerCaseService.RegisterCase(registerCaseCommand.CommandId, newCase);
         }
 
         #endregion ICommandHandler
