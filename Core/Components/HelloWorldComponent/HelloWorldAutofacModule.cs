@@ -1,5 +1,6 @@
-﻿using Autofac;
-using Umc.VigiFlow.Core.Components.HelloWorldComponent.Application.Commands;
+﻿using System.Linq;
+using Autofac;
+using Autofac.Core;
 using Umc.VigiFlow.Core.Components.HelloWorldComponent.Application.Services;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
 
@@ -23,7 +24,10 @@ namespace Umc.VigiFlow.Core.Components.HelloWorldComponent
 
         private static void RegisterCommands(ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterType<HelloWorldCommandHandler>().Named<ICommandHandler<HelloWorldCommand>>("handler");
+            containerBuilder.RegisterAssemblyTypes(typeof(HelloWorldAutofacModule).Assembly)
+                .As(o => o.GetInterfaces()
+                    .Where(i => i.IsClosedTypeOf(typeof(ICommandHandler<>)))
+                    .Select(i => new KeyedService("ICommandHandler", i)));
         }
 
         #endregion Private

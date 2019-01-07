@@ -15,12 +15,12 @@ namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus
             containerBuilder.RegisterGenericDecorator(
                 typeof(LoggingBehavior<>),
                 typeof(ICommandHandler<>),
-                fromKey: "handler",
-                toKey: "loggedHandler");
+                fromKey: "ICommandHandler",
+                toKey: "LoggedCommandHandler");
             containerBuilder.RegisterGenericDecorator(
                 typeof(ValidationBehavior<>),
                 typeof(ICommandHandler<>),
-                fromKey: "loggedHandler");
+                fromKey: "LoggedCommandHandler");
         }
     }
 }

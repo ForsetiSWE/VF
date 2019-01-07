@@ -1,5 +1,6 @@
-﻿using Autofac;
-using Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands;
+﻿using System.Linq;
+using Autofac;
+using Autofac.Core;
 using Umc.VigiFlow.Core.Components.CaseComponent.Application.Repositories;
 using Umc.VigiFlow.Core.Components.CaseComponent.Application.Services;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
@@ -33,9 +34,10 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent
 
         private static void RegisterCommands(ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterType<RegisterCaseCommandHandler>().Named<ICommandHandler<RegisterCaseCommand>>("handler");
-            containerBuilder.RegisterType<AmendCaseCommandHandler>().Named<ICommandHandler<AmendCaseCommand>>("handler");
-            containerBuilder.RegisterType<FollowUpCaseCommandHandler>().Named<ICommandHandler<FollowUpCaseCommand>>("handler");
+            containerBuilder.RegisterAssemblyTypes(typeof(CaseAutofacModule).Assembly)
+                .As(o => o.GetInterfaces()
+                    .Where(i => i.IsClosedTypeOf(typeof(ICommandHandler<>)))
+                    .Select(i => new KeyedService("ICommandHandler", i)));
         }
 
         #endregion Private
