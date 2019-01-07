@@ -3,7 +3,7 @@ using Umc.VigiFlow.Core.SharedKernel.Commands;
 
 namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus.Behaviors
 {
-    class LoggingBehavior<TCommand> : ICommandHandlerBehavior, ICommandHandler<TCommand> where TCommand : ICommand
+    class LoggingBehavior<TCommand> : ICommandHandler<TCommand> where TCommand : ICommand
     {
         #region Setup
 

@@ -33,9 +33,9 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent
 
         private static void RegisterCommands(ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterType<RegisterCaseCommandHandler>().As<ICommandHandler<RegisterCaseCommand>>();
-            containerBuilder.RegisterType<AmendCaseCommandHandler>().As<ICommandHandler<AmendCaseCommand>>();
-            containerBuilder.RegisterType<FollowUpCaseCommandHandler>().As<ICommandHandler<FollowUpCaseCommand>>();
+            containerBuilder.RegisterType<RegisterCaseCommandHandler>().Named<ICommandHandler<RegisterCaseCommand>>("handler");
+            containerBuilder.RegisterType<AmendCaseCommandHandler>().Named<ICommandHandler<AmendCaseCommand>>("handler");
+            containerBuilder.RegisterType<FollowUpCaseCommandHandler>().Named<ICommandHandler<FollowUpCaseCommand>>("handler");
         }
 
         #endregion Private

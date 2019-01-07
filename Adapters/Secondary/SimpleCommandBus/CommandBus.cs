@@ -24,11 +24,8 @@ namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus
         {
             var commandHandler = componentContext.Resolve<ICommandHandler<TCommand>>();
 
-            // Add behaviors
-            var loggingBehavior = new LoggingBehavior<TCommand>(commandHandler, componentContext.Resolve<ILogger>());
-
             // Handle
-            loggingBehavior.Handle(command);
+            commandHandler.Handle(command);
         }
 
         #endregion ICommandBus
