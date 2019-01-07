@@ -11,8 +11,8 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 + Logger port to be used in LoggingBehavior
 + Remove Case model from RegisterCaseCommand
 + add domain logic to set initial date and most recent date
++ Add AmendCaseCommand / FollowUpCaseCommand, should have domain logic to change dates accordingly
 
-- Add AmendCaseCommand / FollowUpCaseCommand, should have domain logic to change dates accordingly
 - Add revision in case model, where to handle? in Persistance?
 - Validation (FluentValidation?)
 - Audit

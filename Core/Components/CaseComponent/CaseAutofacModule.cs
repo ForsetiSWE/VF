@@ -27,11 +27,15 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent
         private static void RegisterServices(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterType<RegisterCaseService>().As<IRegisterCaseService>();
+            containerBuilder.RegisterType<AmendCaseService>().As<IAmendCaseService>();
+            containerBuilder.RegisterType<FollowUpCaseService>().As<IFollowUpCaseService>();
         }
 
         private static void RegisterCommands(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterType<RegisterCaseCommandHandler>().As<ICommandHandler<RegisterCaseCommand>>();
+            containerBuilder.RegisterType<AmendCaseCommandHandler>().As<ICommandHandler<AmendCaseCommand>>();
+            containerBuilder.RegisterType<FollowUpCaseCommandHandler>().As<ICommandHandler<FollowUpCaseCommand>>();
         }
 
         #endregion Private

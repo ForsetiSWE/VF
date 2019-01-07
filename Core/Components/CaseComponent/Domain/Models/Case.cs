@@ -6,11 +6,11 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models
     {
         #region Properties
 
-        public Guid Id { get; }
+        public Guid Id { get; private set; }
 
-        public string Description { get; }
-        public DateTime InitialDate { get; }
-        public DateTime DateOfMostRecentInformation { get; }
+        public string Description { get; private set; }
+        public DateTime InitialDate { get; private set; }
+        public DateTime DateOfMostRecentInformation { get; private set; }
 
         #endregion Properties
 
@@ -27,5 +27,15 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models
         }
 
         #endregion Setup
+
+        public void ChangeDescription(string description)
+        {
+            Description = description;
+        }
+
+        public void FollowUp(DateTime dateOfMostRecentInformation)
+        {
+            DateOfMostRecentInformation = dateOfMostRecentInformation;
+        }
     }
 }

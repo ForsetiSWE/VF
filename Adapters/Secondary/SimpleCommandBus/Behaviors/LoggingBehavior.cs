@@ -1,5 +1,4 @@
-﻿using System;
-using Umc.VigiFlow.Core.Ports;
+﻿using Umc.VigiFlow.Core.Ports;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
 
 namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus.Behaviors

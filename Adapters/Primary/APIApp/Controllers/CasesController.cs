@@ -15,6 +15,13 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp.Controllers
             public DateTime InitialDate { get; set; }
         }
 
+        public class ChangedCase
+        {
+            public Guid CaseId { get; set; }
+            public string Description { get; set; }
+            public DateTime DateOfMostRecentInformation { get; set; }
+        }
+
         #region Setup
 
         private readonly ICommandBus commandBus;
@@ -33,6 +40,23 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp.Controllers
         public void Post([FromBody] NewCase newCase)
         {
             commandBus.Send(new RegisterCaseCommand(Guid.NewGuid(), Guid.NewGuid(), newCase.Description, newCase.InitialDate));
+        }
+
+        // Put api/cases
+        [HttpPut]
+        public void AmendCase([FromBody] ChangedCase changedCase)
+        {
+            // The Controller can't contain equal requests hence the if here, could be solved in many different ways... other verbs, routing...
+            if (changedCase.DateOfMostRecentInformation != DateTime.MinValue)
+            {
+                // We got a date, its an follow-up
+                commandBus.Send(new FollowUpCaseCommand(Guid.NewGuid(), changedCase.CaseId, changedCase.Description, changedCase.DateOfMostRecentInformation));
+            }
+            else
+            {
+                // Got no date its an amendment
+                commandBus.Send(new AmendCaseCommand(Guid.NewGuid(), changedCase.CaseId, changedCase.Description));
+            }
         }
 
         #endregion API

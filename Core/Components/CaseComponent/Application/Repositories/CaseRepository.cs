@@ -1,4 +1,6 @@
-﻿using Umc.VigiFlow.Core.Ports;
+﻿using System;
+using Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models;
+using Umc.VigiFlow.Core.Ports;
 
 namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Repositories
 {
@@ -17,9 +19,14 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Repositories
 
         #region ICaseRepository
 
-        public void Store(Domain.Models.Case newCase)
+        public void Store(Case newCase)
         {
-            persistance.Store(new[] { newCase });
+            persistance.Store(newCase, newCase.Id);
+        }
+
+        public Case Get(Guid caseId)
+        {
+            return persistance.Get<Case>(caseId);
         }
 
         #endregion ICaseRepository

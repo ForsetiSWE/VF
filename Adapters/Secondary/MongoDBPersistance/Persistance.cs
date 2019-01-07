@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using MongoDB.Driver;
 using Umc.VigiFlow.Core.Ports;
 
@@ -19,9 +19,18 @@ namespace Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance
 
         #region IPersistance
 
-        public void Store<T>(IEnumerable<T> items)
+        public void Store<T>(T item, Guid id)
         {
-            GetCollection<T>().InsertMany(items);
+            var filter = Builders<T>.Filter.Eq("_id", id);
+
+            GetCollection<T>().ReplaceOne(filter, item, new UpdateOptions { IsUpsert = true});
+        }
+
+        public T Get<T>(Guid id)
+        {
+            var filter = Builders<T>.Filter.Eq("_id", id);
+
+            return GetCollection<T>().Find(filter).Single();
         }
 
         #endregion IPersistance
