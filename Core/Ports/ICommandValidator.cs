@@ -4,6 +4,6 @@ namespace Umc.VigiFlow.Core.Ports
 {
     public interface ICommandValidator
     {
-        void Validate<TCommand>(TCommand entity) where TCommand : ICommand;
+        void Validate<TCommand>(TCommand command) where TCommand : ICommand;
     }
 }

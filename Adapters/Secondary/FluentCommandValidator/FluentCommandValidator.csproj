@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>Umc.VigiFlow.Adapters.Secondary.FluentCommandValidator</RootNamespace>
+    <AssemblyName>Umc.VigiFlow.Adapters.Secondary.FluentCommandValidator</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Components\CaseComponent\CaseComponent.csproj" />
+    <ProjectReference Include="..\..\..\Core\Components\HelloWorldComponent\HelloWorldComponent.csproj" />
+    <ProjectReference Include="..\..\..\Core\Ports\Ports.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\..\..\..\.nuget\packages\autofac\4.8.1\lib\netstandard1.1\Autofac.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -7,7 +7,7 @@ namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandValidator
     {
         protected override void Load(ContainerBuilder containerBuilder)
         {
-            containerBuilder.Register(c => new CommandValidator()).As<ICommandValidator>();
+            containerBuilder.RegisterType<CommandValidator>().As<ICommandValidator>();
         }
     }
 }

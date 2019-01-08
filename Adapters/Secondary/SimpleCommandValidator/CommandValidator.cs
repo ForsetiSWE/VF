@@ -7,7 +7,7 @@ namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandValidator
     {
         #region ICommandValidator
 
-        public void Validate<TCommand>(TCommand entity) where TCommand : ICommand
+        public void Validate<TCommand>(TCommand command) where TCommand : ICommand
         {
             // Super stupid validator, always happy
         }

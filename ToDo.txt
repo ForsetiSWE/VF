@@ -13,8 +13,8 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 + add domain logic to set initial date and most recent date
 + Add AmendCaseCommand / FollowUpCaseCommand, should have domain logic to change dates accordingly
 + Add revision in case model, where to handle? in Persistance?
++ Add validation port and adapter to use in validationbehavior (FluentValidation?)
 
-- Add validation port and adapter to use in validationbehavior (FluentValidation?)
 - Audit
 - Authentication
 - Authorization
@@ -23,3 +23,4 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 - What can be made internal when using autofac?
 - Is CommandHandler correct place to transform from Command to domain model?
 - One Case service with methods vs AmdendCase/FollowUpCase/RegisterCase services?
+- FollowUpCaseCommandValidator - How to validate that Initial Date / Most Recent date are in expected sequence?

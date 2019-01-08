@@ -1,9 +1,9 @@
 ﻿using System;
 using Autofac;
 using Umc.VigiFlow.Adapters.Secondary.ConsoleLogger;
+using Umc.VigiFlow.Adapters.Secondary.FluentCommandValidator;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
 using Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus;
-using Umc.VigiFlow.Adapters.Secondary.SimpleCommandValidator;
 using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
 using Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands;
 using Umc.VigiFlow.Core.Components.HelloWorldComponent.Application.Commands;
@@ -76,7 +76,7 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
                 ConnectionString = "mongodb://localhost:27017"
             });
             containerBuilder.RegisterModule<ConsoleLoggerAutofacModule>();
-            containerBuilder.RegisterModule<SimpleCommandValidatorAutofacModule>();
+            containerBuilder.RegisterModule<FluentCommandValidatorAutofacModule>();
         }
 
         #endregion Private
