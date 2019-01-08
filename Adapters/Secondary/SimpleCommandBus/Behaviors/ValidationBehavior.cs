@@ -1,4 +1,5 @@
-﻿using Umc.VigiFlow.Core.SharedKernel.Commands;
+﻿using Umc.VigiFlow.Core.Ports;
+using Umc.VigiFlow.Core.SharedKernel.Commands;
 
 namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus.Behaviors
 {
@@ -7,10 +8,12 @@ namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus.Behaviors
         #region Setup
 
         private readonly ICommandHandler<TCommand> commandHandler;
+        private readonly ICommandValidator validator;
 
-        public ValidationBehavior(ICommandHandler<TCommand> commandHandler)
+        public ValidationBehavior(ICommandHandler<TCommand> commandHandler, ICommandValidator validator)
         {
             this.commandHandler = commandHandler;
+            this.validator = validator;
         }
 
         #endregion Setup
@@ -19,7 +22,8 @@ namespace Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus.Behaviors
 
         public void Handle(TCommand command)
         {
-            //TODO validation with injected adapter
+            // Validate command, should throw ArgumentException if invalid
+            validator.Validate(command);
 
             commandHandler.Handle(command);
         }

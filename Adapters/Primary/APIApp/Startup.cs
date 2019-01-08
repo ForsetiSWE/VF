@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Umc.VigiFlow.Adapters.Secondary.ConsoleLogger;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
 using Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus;
+using Umc.VigiFlow.Adapters.Secondary.SimpleCommandValidator;
 using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
 using Umc.VigiFlow.Core.VigiFlowCore;
 
@@ -58,6 +59,7 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp
                 ConnectionString = "mongodb://localhost:27017"
             });
             containerBuilder.RegisterModule<ConsoleLoggerAutofacModule>();
+            containerBuilder.RegisterModule<SimpleCommandValidatorAutofacModule>();
         }
 
         #endregion Private
