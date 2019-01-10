@@ -6,16 +6,20 @@ namespace Umc.VigiFlow.Core.SharedKernel.Commands
     {
         #region Setup
 
-        public Command(Guid commandId)
+        private readonly Guid? originFromCommandId;
+        private readonly Guid commandId;
+
+        public Command(Guid commandId, Guid? originFromCommandId)
         {
-            CommandId = commandId;
+            this.commandId = commandId;
+            this.originFromCommandId = originFromCommandId;
         }
 
         #endregion Setup
 
         #region ICommand
 
-        public Guid CommandId { get; }
+        public Guid CommandId => originFromCommandId ?? commandId;
 
         #endregion ICommand
     }

@@ -11,7 +11,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
         public readonly string Description;
         public readonly DateTime InitialDate;
 
-        public RegisterCaseCommand(Guid commandId, Guid caseId, string description, DateTime initialDate) : base(commandId)
+        public RegisterCaseCommand(Guid commandId, Guid caseId, string description, DateTime initialDate, Guid? originFromCommandId = null) : base(commandId, originFromCommandId)
         {
             CaseId = caseId;
             Description = description;

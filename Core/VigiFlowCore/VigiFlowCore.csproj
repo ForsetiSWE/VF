@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Components\AuditTrailComponent\AuditTrailComponent.csproj" />
     <ProjectReference Include="..\Components\CaseComponent\CaseComponent.csproj" />
     <ProjectReference Include="..\Components\HelloWorldComponent\HelloWorldComponent.csproj" />
   </ItemGroup>

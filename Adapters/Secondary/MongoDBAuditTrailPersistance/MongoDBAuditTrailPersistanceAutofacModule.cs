@@ -1,14 +1,14 @@
 ﻿using Autofac;
 using Umc.VigiFlow.Core.Ports;
 
-namespace Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance
+namespace Umc.VigiFlow.Adapters.Secondary.MongoDBAuditTrailPersistance
 {
-    public class MongoDBPersistanceAutofacModule : Module
+    public class MongoDBAuditTrailPersistanceAutofacModule : Module
     {
         protected override void Load(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterType<ConnectionStringProvider>().As<IConnectionStringProvider>();
-            containerBuilder.RegisterType<Persistance>().As<IPersistance>();
+            containerBuilder.RegisterType<AuditTrailPersistance>().As<IAuditTrailPersistance>();
         }
     }
 }

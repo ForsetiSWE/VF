@@ -11,7 +11,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent
     {
         protected override void Load(ContainerBuilder containerBuilder)
         {
-            RegisterCommands(containerBuilder);
+            RegisterCommandHandlers(containerBuilder);
 
             RegisterServices(containerBuilder);
 
@@ -32,7 +32,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent
             containerBuilder.RegisterType<FollowUpCaseService>().As<IFollowUpCaseService>();
         }
 
-        private static void RegisterCommands(ContainerBuilder containerBuilder)
+        private static void RegisterCommandHandlers(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterAssemblyTypes(typeof(CaseAutofacModule).Assembly)
                 .As(o => o.GetInterfaces()

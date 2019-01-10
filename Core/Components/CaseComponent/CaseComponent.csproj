@@ -3,9 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <RootNamespace>Umc.VigiFlow.Core.Components.CaseComponent</RootNamespace>
+    <AssemblyName>Umc.VigiFlow.Core.Components.CaseComponent</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Application\EventListeners\" />
     <Folder Include="Domain\Services\" />
   </ItemGroup>
 

@@ -11,7 +11,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
         public readonly int Revision;
         public readonly string Description;
         public readonly DateTime DateOfMostRecentInformation;
-        public FollowUpCaseCommand(Guid commandId, Guid caseId, int revision, string description, DateTime dateOfMostRecentInformation) : base(commandId)
+        public FollowUpCaseCommand(Guid commandId, Guid caseId, int revision, string description, DateTime dateOfMostRecentInformation, Guid? originFromCommandId = null) : base(commandId, originFromCommandId)
         {
             CaseId = caseId;
             Revision = revision;

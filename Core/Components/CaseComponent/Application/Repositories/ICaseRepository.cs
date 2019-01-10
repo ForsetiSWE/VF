@@ -5,7 +5,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Repositories
 {
     public interface ICaseRepository
     {
-        void Store(Case newCase);
+        void Store(Guid commandId, Case newCase);
         Case Get(Guid caseId, int revision);
     }
 }

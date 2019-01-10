@@ -24,7 +24,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Services
 
         public void RegisterCase(Guid commandId, Domain.Models.Case newCase)
         {
-            caseRepository.Store(newCase);
+            caseRepository.Store(commandId, newCase);
 
             eventBus.Publish(new CaseRegisteredEvent(Guid.NewGuid(), commandId, newCase.Id));
         }

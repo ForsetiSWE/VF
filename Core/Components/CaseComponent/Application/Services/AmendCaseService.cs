@@ -31,7 +31,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Services
             existingCase.ChangeDescription(description);
 
             // Persist
-            caseRepository.Store(existingCase);
+            caseRepository.Store(commandId, existingCase);
 
             eventBus.Publish(new CaseAmendedEvent(Guid.NewGuid(), commandId, existingCase.Id));
         }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Umc.VigiFlow.Core.SharedKernel.BaseModel;
+using Umc.VigiFlow.Core.SharedKernel.Models;
 
 namespace Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models
 {
@@ -19,10 +19,8 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models
 
         public Case(Guid id, int revision, string description, DateTime initialDate) : this(id, revision, description, initialDate, initialDate) { }
 
-        public Case(Guid id, int revision, string description, DateTime initialDate, DateTime dateOfMostRecentInformation)
+        public Case(Guid id, int revision, string description, DateTime initialDate, DateTime dateOfMostRecentInformation) : base(id, revision)
         {
-            Id = id;
-            Revision = revision;
             Description = description;
             InitialDate = initialDate;
             DateOfMostRecentInformation = dateOfMostRecentInformation;

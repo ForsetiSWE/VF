@@ -11,7 +11,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
         public readonly int Revision;
         public readonly string Description;
 
-        public AmendCaseCommand(Guid commandId, Guid caseId, int revision, string description) : base(commandId)
+        public AmendCaseCommand(Guid commandId, Guid caseId, int revision, string description, Guid? originFromCommandId = null) : base(commandId, originFromCommandId)
         {
             CaseId = caseId;
             Revision = revision;

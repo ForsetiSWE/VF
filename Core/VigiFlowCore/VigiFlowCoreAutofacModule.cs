@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Umc.VigiFlow.Core.Components.AuditTrailComponent;
 using Umc.VigiFlow.Core.Components.CaseComponent;
 using Umc.VigiFlow.Core.Components.HelloWorldComponent;
 
@@ -10,6 +11,7 @@ namespace Umc.VigiFlow.Core.VigiFlowCore
         {
             builder.RegisterModule<CaseAutofacModule>();
             builder.RegisterModule<HelloWorldAutofacModule>();
+            builder.RegisterModule<AuditTrailAutofacModule>();
         }
     }
 }

@@ -2,6 +2,7 @@
 using Autofac;
 using Umc.VigiFlow.Adapters.Secondary.ConsoleLogger;
 using Umc.VigiFlow.Adapters.Secondary.FluentCommandValidator;
+using Umc.VigiFlow.Adapters.Secondary.MongoDBAuditTrailPersistance;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
 using Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus;
 using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
@@ -71,12 +72,10 @@ namespace Umc.VigiFlow.Adapters.Primary.ConsoleApp
         {
             containerBuilder.RegisterModule<SimpleCommandBusAutofacModule>();
             containerBuilder.RegisterModule<SimpleEventBusAutofacModule>();
-            containerBuilder.RegisterModule(new MongoDBPersistanceAutofacModule
-            {
-                ConnectionString = "mongodb://localhost:27017"
-            });
+            containerBuilder.RegisterModule<MongoDBPersistanceAutofacModule>();
             containerBuilder.RegisterModule<ConsoleLoggerAutofacModule>();
             containerBuilder.RegisterModule<FluentCommandValidatorAutofacModule>();
+            containerBuilder.RegisterModule<MongoDBAuditTrailPersistanceAutofacModule>();
         }
 
         #endregion Private

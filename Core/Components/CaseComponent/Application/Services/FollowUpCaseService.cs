@@ -34,7 +34,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Services
             existingCase.FollowUp(dateOfMostRecentInformation);
 
             // Persist
-            caseRepository.Store(existingCase);
+            caseRepository.Store(commandId, existingCase);
 
             eventBus.Publish(new CaseFollowedUpEvent(Guid.NewGuid(), commandId, existingCase.Id));
         }

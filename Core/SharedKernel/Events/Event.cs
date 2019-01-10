@@ -6,13 +6,13 @@ namespace Umc.VigiFlow.Core.SharedKernel.Events
     {
         #region Setup
 
-        private readonly Guid eventId;
-        private readonly Guid commandId;
+        public readonly Guid EventId;
+        public readonly Guid CommandId;
 
         public Event(Guid eventId, Guid commandId)
         {
-            this.eventId = eventId;
-            this.commandId = commandId;
+            EventId = eventId;
+            CommandId = commandId;
         }
 
         #endregion Setup

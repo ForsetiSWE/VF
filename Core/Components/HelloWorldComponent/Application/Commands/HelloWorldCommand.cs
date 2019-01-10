@@ -7,7 +7,7 @@ namespace Umc.VigiFlow.Core.Components.HelloWorldComponent.Application.Commands
     {
         public readonly string HelloWorld;
 
-        public HelloWorldCommand(Guid commandId, string helloWorld) : base(commandId)
+        public HelloWorldCommand(Guid commandId, string helloWorld, Guid? originFromCommandId = null) : base(commandId, originFromCommandId)
         {
             HelloWorld = helloWorld;
         }

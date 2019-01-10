@@ -1,11 +1,11 @@
 ﻿using System;
-using Umc.VigiFlow.Core.SharedKernel.BaseModel;
+using Umc.VigiFlow.Core.SharedKernel.Models;
 
 namespace Umc.VigiFlow.Core.Ports
 {
     public interface IPersistance
     {
-        void Store<T>(T entity) where T : BaseEntity;
+        void Store<T>(Guid commandId, T entity) where T : BaseEntity;
         T Get<T>(Guid id, int revision);
     }
 }

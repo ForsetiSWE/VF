@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Umc.VigiFlow.Adapters.Secondary.ConsoleLogger;
+using Umc.VigiFlow.Adapters.Secondary.MongoDBAuditTrailPersistance;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
 using Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus;
 using Umc.VigiFlow.Adapters.Secondary.SimpleCommandValidator;
@@ -54,12 +55,10 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp
         {
             containerBuilder.RegisterModule<SimpleCommandBusAutofacModule>();
             containerBuilder.RegisterModule<SimpleEventBusAutofacModule>();
-            containerBuilder.RegisterModule(new MongoDBPersistanceAutofacModule
-            {
-                ConnectionString = "mongodb://localhost:27017"
-            });
+            containerBuilder.RegisterModule<MongoDBPersistanceAutofacModule>();
             containerBuilder.RegisterModule<ConsoleLoggerAutofacModule>();
             containerBuilder.RegisterModule<SimpleCommandValidatorAutofacModule>();
+            containerBuilder.RegisterModule<MongoDBAuditTrailPersistanceAutofacModule>();
         }
 
         #endregion Private

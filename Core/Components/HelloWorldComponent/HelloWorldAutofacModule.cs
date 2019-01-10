@@ -10,7 +10,7 @@ namespace Umc.VigiFlow.Core.Components.HelloWorldComponent
     {
         protected override void Load(ContainerBuilder containerBuilder)
         {
-            RegisterCommands(containerBuilder);
+            RegisterCommandHandlers(containerBuilder);
 
             RegisterServices(containerBuilder);
         }
@@ -22,7 +22,7 @@ namespace Umc.VigiFlow.Core.Components.HelloWorldComponent
             containerBuilder.RegisterType<HelloWorldService>().As<IHelloWorldService>();
         }
 
-        private static void RegisterCommands(ContainerBuilder containerBuilder)
+        private static void RegisterCommandHandlers(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterAssemblyTypes(typeof(HelloWorldAutofacModule).Assembly)
                 .As(o => o.GetInterfaces()

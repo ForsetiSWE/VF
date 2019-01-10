@@ -19,9 +19,9 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Repositories
 
         #region ICaseRepository
 
-        public void Store(Case newCase)
+        public void Store(Guid commandId, Case newCase)
         {
-            persistance.Store(newCase);
+            persistance.Store(commandId, newCase);
         }
 
         public Case Get(Guid caseId, int revision)
