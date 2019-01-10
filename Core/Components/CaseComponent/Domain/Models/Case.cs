@@ -3,7 +3,7 @@ using Umc.VigiFlow.Core.SharedKernel.Models;
 
 namespace Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models
 {
-    public class Case : BaseEntity
+    public class Case : RevisionedEntity
     {
         #region Properties
 

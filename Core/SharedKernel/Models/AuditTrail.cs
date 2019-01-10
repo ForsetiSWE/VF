@@ -2,7 +2,7 @@
 
 namespace Umc.VigiFlow.Core.SharedKernel.Models
 {
-    public class AuditTrail<TEntity> where TEntity : BaseEntity
+    public class AuditTrail<TEntity> where TEntity : Entity
     {
         #region Properties
 

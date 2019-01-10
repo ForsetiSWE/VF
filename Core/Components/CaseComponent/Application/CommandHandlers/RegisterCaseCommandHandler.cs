@@ -1,17 +1,18 @@
-﻿using Umc.VigiFlow.Core.Components.CaseComponent.Application.Services;
+﻿using Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands;
+using Umc.VigiFlow.Core.Components.CaseComponent.Application.Services;
 using Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
 
-namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
+namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.CommandHandlers
 {
     public class RegisterCaseCommandHandler : ICommandHandler<RegisterCaseCommand>
     {
         #region Setup
-        private readonly IRegisterCaseService registerCaseService;
+        private readonly ICaseService caseService;
 
-        public RegisterCaseCommandHandler(IRegisterCaseService registerCaseService)
+        public RegisterCaseCommandHandler(ICaseService caseService)
         {
-            this.registerCaseService = registerCaseService;
+            this.caseService = caseService;
         }
 
         #endregion Setup
@@ -22,7 +23,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
         {
             var newCase = new Case(registerCaseCommand.CaseId, registerCaseCommand.Description, registerCaseCommand.InitialDate);
 
-            registerCaseService.RegisterCase(registerCaseCommand.CommandId, newCase);
+            caseService.RegisterCase(registerCaseCommand.CommandId, newCase);
         }
 
         #endregion ICommandHandler

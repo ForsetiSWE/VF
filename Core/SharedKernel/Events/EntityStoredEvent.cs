@@ -7,13 +7,13 @@ namespace Umc.VigiFlow.Core.SharedKernel.Events
     {
         #region Properties
 
-        public BaseEntity StoredEntity { get; }
+        public Entity StoredEntity { get; }
 
         #endregion Properties
 
         #region Setup
 
-        public EntityStoredEvent(Guid eventId, Guid commandId, BaseEntity storedEntity) : base(eventId, commandId)
+        public EntityStoredEvent(Guid eventId, Guid commandId, Entity storedEntity) : base(eventId, commandId)
         {
             StoredEntity = storedEntity;
         }

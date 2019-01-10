@@ -4,6 +4,7 @@ using Autofac.Core;
 using Umc.VigiFlow.Core.Components.CaseComponent.Application.Repositories;
 using Umc.VigiFlow.Core.Components.CaseComponent.Application.Services;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
+using Umc.VigiFlow.Core.SharedKernel.Events;
 
 namespace Umc.VigiFlow.Core.Components.CaseComponent
 {
@@ -16,6 +17,8 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent
             RegisterServices(containerBuilder);
 
             RegisterRepositories(containerBuilder);
+
+            RegisterEventListeners(containerBuilder);
         }
 
         #region Private
@@ -23,13 +26,13 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent
         private static void RegisterRepositories(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterType<CaseRepository>().As<ICaseRepository>();
+            containerBuilder.RegisterType<HistoricCaseRepository>().As<IHistoricCaseRepository>();
         }
 
         private static void RegisterServices(ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterType<RegisterCaseService>().As<IRegisterCaseService>();
-            containerBuilder.RegisterType<AmendCaseService>().As<IAmendCaseService>();
-            containerBuilder.RegisterType<FollowUpCaseService>().As<IFollowUpCaseService>();
+            containerBuilder.RegisterType<CaseService>().As<ICaseService>();
+            containerBuilder.RegisterType<HistoricCaseService>().As<IHistoricCaseService>();
         }
 
         private static void RegisterCommandHandlers(ContainerBuilder containerBuilder)
@@ -38,6 +41,14 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent
                 .As(o => o.GetInterfaces()
                     .Where(i => i.IsClosedTypeOf(typeof(ICommandHandler<>)))
                     .Select(i => new KeyedService("ICommandHandler", i)));
+        }
+
+        private static void RegisterEventListeners(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.RegisterAssemblyTypes(typeof(CaseAutofacModule).Assembly)
+                .As(o => o.GetInterfaces()
+                    .Where(i => i.IsClosedTypeOf(typeof(IEventListener<>)))
+                    .Select(i => new KeyedService("IEventListener", i)));
         }
 
         #endregion Private

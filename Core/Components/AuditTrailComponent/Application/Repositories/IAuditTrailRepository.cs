@@ -4,6 +4,6 @@ namespace Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.Repositor
 {
     public interface IAuditTrailRepository
     {
-        void Store(AuditTrail<BaseEntity> auditTrail);
+        void Store(AuditTrail<Entity> auditTrail);
     }
 }

@@ -4,24 +4,24 @@ using Umc.VigiFlow.Core.Ports;
 
 namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Repositories
 {
-    public class CaseRepository : ICaseRepository
+    class HistoricCaseRepository : IHistoricCaseRepository
     {
         #region Setup
 
         private readonly IPersistance persistance;
 
-        public CaseRepository(IPersistance persistance)
+        public HistoricCaseRepository(IPersistance persistance)
         {
             this.persistance = persistance;
         }
-        
+
         #endregion Setup
 
-        #region ICaseRepository
+        #region IHistoricCaseRepository
 
-        public void Store(Guid commandId, Case @case)
+        public void Store(Guid commandId, HistoricCase historicCase)
         {
-            persistance.Store(commandId, @case);
+            persistance.Store(commandId, historicCase);
         }
 
         public Case Get(Guid caseId, int revision)
@@ -29,6 +29,6 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Repositories
             return persistance.Get<Case>(caseId, revision);
         }
 
-        #endregion ICaseRepository
+        #endregion IHistoricCaseRepository
     }
 }

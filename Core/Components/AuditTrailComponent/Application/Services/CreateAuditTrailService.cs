@@ -18,7 +18,7 @@ namespace Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.Services
 
         #region ICreateAuditTrailService
 
-        public void CreateAuditTrail(AuditTrail<BaseEntity> auditTrail)
+        public void CreateAuditTrail(AuditTrail<Entity> auditTrail)
         {
             auditTrailRepository.Store(auditTrail);
         }

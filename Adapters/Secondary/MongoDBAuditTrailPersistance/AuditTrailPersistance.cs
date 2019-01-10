@@ -19,7 +19,7 @@ namespace Umc.VigiFlow.Adapters.Secondary.MongoDBAuditTrailPersistance
 
         #region IAuditTrailPersistance
 
-        public void Store(AuditTrail<BaseEntity> auditTrail)
+        public void Store(AuditTrail<Entity> auditTrail)
         {
             GetCollection().InsertOne(auditTrail);
         }
@@ -28,11 +28,11 @@ namespace Umc.VigiFlow.Adapters.Secondary.MongoDBAuditTrailPersistance
 
         #region Private
 
-        private IMongoCollection<AuditTrail<BaseEntity>> GetCollection()
+        private IMongoCollection<AuditTrail<Entity>> GetCollection()
         {
             var mongoClient = new MongoClient(connectionStringProvider.ConnectionString);
             // TODO: Hardcoded databasename?!?!?
-            return mongoClient.GetDatabase("Test").GetCollection<AuditTrail<BaseEntity>>("AuditTrail");
+            return mongoClient.GetDatabase("Test").GetCollection<AuditTrail<Entity>>("AuditTrail");
         }
 
         #endregion Private

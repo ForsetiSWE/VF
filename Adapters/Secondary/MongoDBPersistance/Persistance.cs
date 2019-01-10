@@ -23,18 +23,22 @@ namespace Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance
 
         #region IPersistance
 
-        public void Store<T>(Guid commandId, T entity) where T : BaseEntity
+        public void Store<T>(Guid commandId, T entity) where T : Entity
         {
             var filter = Builders<T>.Filter.Eq("_id", entity.Id);
 
-            if (entity.Revision > 0)
+            var revisionedEntity = entity as RevisionedEntity;
+            if (revisionedEntity != null)
             {
-                // Not first revision, add filter for revision
-                filter = filter & Builders<T>.Filter.Eq("Revision", entity.Revision);
-            }
+                if (revisionedEntity.Revision > 0)
+                {
+                    // Not first revision, add filter for revision
+                    filter = filter & Builders<T>.Filter.Eq("Revision", revisionedEntity.Revision);
+                }
 
-            // Move to next revision for entitiy
-            entity.NextRevision();
+                // Move to next revision for entitiy
+                revisionedEntity.NextRevision();
+            }
 
             GetCollection<T>().ReplaceOne(filter, entity, new UpdateOptions { IsUpsert = true});
 

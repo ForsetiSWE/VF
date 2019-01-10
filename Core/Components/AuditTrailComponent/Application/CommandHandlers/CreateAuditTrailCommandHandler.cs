@@ -1,8 +1,9 @@
-﻿using Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.Services;
+﻿using Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.Commands;
+using Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.Services;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
 using Umc.VigiFlow.Core.SharedKernel.Models;
 
-namespace Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.Commands
+namespace Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.CommandHandlers
 {
     public class CreateAuditTrailCommandHandler : ICommandHandler<CreateAuditTrailCommand>
     {
@@ -20,7 +21,7 @@ namespace Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.Commands
 
         public void Handle(CreateAuditTrailCommand createAuditTrailCommand)
         {
-            createAuditTrailService.CreateAuditTrail(new AuditTrail<BaseEntity>(createAuditTrailCommand.CommandId,
+            createAuditTrailService.CreateAuditTrail(new AuditTrail<Entity>(createAuditTrailCommand.CommandId,
                 createAuditTrailCommand.Entity));
         }
 

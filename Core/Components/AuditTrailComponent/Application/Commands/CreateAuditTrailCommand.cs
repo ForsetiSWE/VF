@@ -8,9 +8,9 @@ namespace Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.Commands
     {
         #region Setup
 
-        public readonly BaseEntity Entity;
+        public readonly Entity Entity;
 
-        public CreateAuditTrailCommand(Guid commandId, BaseEntity entity, Guid? originFromCommandId = null) : base(commandId, originFromCommandId)
+        public CreateAuditTrailCommand(Guid commandId, Entity entity, Guid? originFromCommandId = null) : base(commandId, originFromCommandId)
         {
             Entity = entity;
         }

@@ -6,11 +6,11 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
     public class AmendCaseCommandHandler : ICommandHandler<AmendCaseCommand>
     {
         #region Setup
-        private readonly IAmendCaseService amendCaseService;
+        private readonly ICaseService caseService;
 
-        public AmendCaseCommandHandler(IAmendCaseService amendCaseService)
+        public AmendCaseCommandHandler(ICaseService caseService)
         {
-            this.amendCaseService = amendCaseService;
+            this.caseService = caseService;
         }
 
         #endregion Setup
@@ -19,7 +19,7 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
 
         public void Handle(AmendCaseCommand amendCaseCommand)
         {
-            amendCaseService.AmendCase(amendCaseCommand.CommandId, amendCaseCommand.CaseId, amendCaseCommand.Revision, amendCaseCommand.Description);
+            caseService.AmendCase(amendCaseCommand.CommandId, amendCaseCommand.CaseId, amendCaseCommand.Revision, amendCaseCommand.Description);
         }
 
         #endregion ICommandHandler

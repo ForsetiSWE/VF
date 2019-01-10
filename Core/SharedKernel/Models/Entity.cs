@@ -2,28 +2,21 @@
 
 namespace Umc.VigiFlow.Core.SharedKernel.Models
 {
-    public abstract class BaseEntity
+    public abstract class Entity
     {
         #region Properties
 
         public Guid Id { get; private set; }
-        public int Revision { get; private set; }
 
         #endregion Properties
 
         #region Setup
 
-        protected BaseEntity(Guid id, int revision)
+        protected Entity(Guid id)
         {
             Id = id;
-            Revision = revision;
         }
 
         #endregion Setup
-
-        public void NextRevision()
-        {
-            Revision++;
-        }
     }
 }

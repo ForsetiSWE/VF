@@ -16,19 +16,20 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 + Add validation port and adapter to use in validationbehavior (FluentValidation?)
 + Audit
 + Behaviors on EventBus, add LoggingBehavior
++ HistoricCase
 
-- HistoricCase
-- Authentication
-- Authorization
-- Idempotent commands (should only run once)
-- ConnectionString from config instead of hardcoded in applications
-- Tests
+- NLog Logger adapter for Logger Port to be used in api
 - Import API
+- WebApp (Angular => api => core)
 - PDF/Excel
 - Share port
+- Authentication
+- Authorization
+- "Authority databases"
+- Idempotent commands (should only run once)
+- ConnectionString from config instead of hardcoded in ConnectionStringProvider
+- Tests
 - What can be made internal when using autofac?
 - Is CommandHandler correct place to transform from Command to domain model?
-- One Case service with methods vs AmdendCase/FollowUpCase/RegisterCase services?
 - FollowUpCaseCommandValidator - How to validate that Initial Date / Most Recent date are in expected sequence?
 - Persistance model with automapping to solve DateTime issue in MongoDB?
-- "Authority databases"

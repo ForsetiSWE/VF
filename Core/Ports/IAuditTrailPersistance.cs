@@ -4,6 +4,6 @@ namespace Umc.VigiFlow.Core.Ports
 {
     public interface IAuditTrailPersistance
     {
-        void Store(AuditTrail<BaseEntity> auditTrail);
+        void Store(AuditTrail<Entity> auditTrail);
     }
 }

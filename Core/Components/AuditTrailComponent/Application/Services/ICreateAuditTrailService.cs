@@ -5,6 +5,6 @@ namespace Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.Services
 {
     public interface ICreateAuditTrailService
     {
-        void CreateAuditTrail(AuditTrail<BaseEntity> auditTrail);
+        void CreateAuditTrail(AuditTrail<Entity> auditTrail);
     }
 }

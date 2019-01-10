@@ -19,7 +19,7 @@ namespace Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.Repositor
 
         #region IAuditTrailRepository
 
-        public void Store(AuditTrail<BaseEntity> auditTrail)
+        public void Store(AuditTrail<Entity> auditTrail)
         {
             auditTrailPersistance.Store(auditTrail);
         }
