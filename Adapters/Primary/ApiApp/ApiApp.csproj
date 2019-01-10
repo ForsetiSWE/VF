@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\VigiFlowCore\VigiFlowCore.csproj" />
     <ProjectReference Include="..\..\Secondary\ConsoleLogger\ConsoleLogger.csproj" />
+    <ProjectReference Include="..\..\Secondary\MongoDBAuditTrailPersistance\MongoDBAuditTrailPersistance.csproj" />
     <ProjectReference Include="..\..\Secondary\MongoDBPersistance\MongoDBPersistance.csproj" />
     <ProjectReference Include="..\..\Secondary\SimpleCommandBus\SimpleCommandBus.csproj" />
     <ProjectReference Include="..\..\Secondary\SimpleCommandValidator\SimpleCommandValidator.csproj" />
