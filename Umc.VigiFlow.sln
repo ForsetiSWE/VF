@@ -52,6 +52,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuditTrailComponent", "Core
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDBAuditTrailPersistance", "Adapters\Secondary\MongoDBAuditTrailPersistance\MongoDBAuditTrailPersistance.csproj", "{37570F95-3067-42CB-BD66-F407B3C86BDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLogLogger", "Adapters\Secondary\NLogLogger\NLogLogger.csproj", "{E281E073-C657-4B1F-BC6C-F8D91BF8749B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -118,6 +120,10 @@ Global
 		{37570F95-3067-42CB-BD66-F407B3C86BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37570F95-3067-42CB-BD66-F407B3C86BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37570F95-3067-42CB-BD66-F407B3C86BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E281E073-C657-4B1F-BC6C-F8D91BF8749B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E281E073-C657-4B1F-BC6C-F8D91BF8749B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E281E073-C657-4B1F-BC6C-F8D91BF8749B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E281E073-C657-4B1F-BC6C-F8D91BF8749B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -143,6 +149,7 @@ Global
 		{85404DD2-548F-4029-A3DE-1903571D92F5} = {02A92D08-9CB5-43C4-BE07-91F002C25CA5}
 		{4CE7FB1D-6D03-43A5-A5F5-90EEF89CF071} = {4F9BAD6B-F48E-4A8A-954A-D82C0AFCBBB8}
 		{37570F95-3067-42CB-BD66-F407B3C86BDB} = {02A92D08-9CB5-43C4-BE07-91F002C25CA5}
+		{E281E073-C657-4B1F-BC6C-F8D91BF8749B} = {02A92D08-9CB5-43C4-BE07-91F002C25CA5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B4EA81DB-1ED4-4B16-8AD1-3F47D173EF11}

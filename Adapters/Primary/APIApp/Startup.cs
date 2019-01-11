@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Umc.VigiFlow.Adapters.Secondary.ConsoleLogger;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBAuditTrailPersistance;
 using Umc.VigiFlow.Adapters.Secondary.MongoDBPersistance;
+using Umc.VigiFlow.Adapters.Secondary.NLogLogger;
 using Umc.VigiFlow.Adapters.Secondary.SimpleCommandBus;
 using Umc.VigiFlow.Adapters.Secondary.SimpleCommandValidator;
 using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
@@ -56,7 +56,7 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp
             containerBuilder.RegisterModule<SimpleCommandBusAutofacModule>();
             containerBuilder.RegisterModule<SimpleEventBusAutofacModule>();
             containerBuilder.RegisterModule<MongoDBPersistanceAutofacModule>();
-            containerBuilder.RegisterModule<ConsoleLoggerAutofacModule>();
+            containerBuilder.RegisterModule<NLogLoggerAutofacModule>();
             containerBuilder.RegisterModule<SimpleCommandValidatorAutofacModule>();
             containerBuilder.RegisterModule<MongoDBAuditTrailPersistanceAutofacModule>();
         }

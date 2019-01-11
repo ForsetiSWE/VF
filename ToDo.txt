@@ -17,12 +17,12 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 + Audit
 + Behaviors on EventBus, add LoggingBehavior
 + HistoricCase
++ NLog Logger adapter for Logger Port to be used in api
 
-- NLog Logger adapter for Logger Port to be used in api
+- Share port
 - Import API
 - WebApp (Angular => api => core)
 - PDF/Excel
-- Share port
 - Authentication
 - Authorization
 - "Authority databases"
