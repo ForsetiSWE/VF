@@ -1,7 +1,8 @@
-﻿using Umc.VigiFlow.Core.Components.HelloWorldComponent.Application.Services;
+﻿using Umc.VigiFlow.Core.Components.HelloWorldComponent.Application.Commands;
+using Umc.VigiFlow.Core.Components.HelloWorldComponent.Application.Services;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
 
-namespace Umc.VigiFlow.Core.Components.HelloWorldComponent.Application.Commands
+namespace Umc.VigiFlow.Core.Components.HelloWorldComponent.Application.CommandHandlers
 {
     public class HelloWorldCommandHandler : ICommandHandler<HelloWorldCommand>
     {

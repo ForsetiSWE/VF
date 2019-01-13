@@ -1,7 +1,6 @@
-﻿using System;
-using Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.Commands;
-using Umc.VigiFlow.Core.Ports;
+﻿using Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.Services;
 using Umc.VigiFlow.Core.SharedKernel.Events;
+using Umc.VigiFlow.Core.SharedKernel.Models;
 
 namespace Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.EventListeners
 {
@@ -9,11 +8,12 @@ namespace Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.EventList
     {
 
         #region Setup
-        private readonly ICommandBus commandBus;
 
-        public EntityStoredEventListener(ICommandBus commandBus)
+        private readonly ICreateAuditTrailService createAuditTrailService;
+
+        public EntityStoredEventListener(ICreateAuditTrailService createAuditTrailServices)
         {
-            this.commandBus = commandBus;
+            this.createAuditTrailService = createAuditTrailServices;
         }
 
         #endregion Setup
@@ -23,7 +23,7 @@ namespace Umc.VigiFlow.Core.Components.AuditTrailComponent.Application.EventList
         public void OnEvent(EntityStoredEvent @event)
         {
             // Transform event to Command
-            commandBus.Send(new CreateAuditTrailCommand(Guid.NewGuid(), @event.StoredEntity, @event.CommandId));
+            createAuditTrailService.CreateAuditTrail(new AuditTrail<Entity>(@event.CommandId, @event.StoredEntity));
         }
 
         #endregion IEventListener
