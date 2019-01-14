@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>Umc.VigiFlow.Adapters.Primary.APIApp</AssemblyName>
-    <RootNamespace>Umc.VigiFlow.Adapters.Primary.APIApp</RootNamespace>
+    <AssemblyName>Umc.VigiFlow.Adapters.Primary.ImportAPIApp</AssemblyName>
+    <RootNamespace>Umc.VigiFlow.Adapters.Primary.ImportAPIApp</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

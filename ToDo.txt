@@ -19,8 +19,8 @@ https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/micr
 + HistoricCase
 + NLog Logger adapter for Logger Port to be used in api
 
-- Share port
 - Import API
+- Share port
 - WebApp (Angular => api => core)
 - PDF/Excel
 - Authentication
