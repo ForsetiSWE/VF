@@ -27,7 +27,7 @@ namespace Umc.VigiFlow.Adapters.Primary.IntegrationApp.Controllers
         [HttpPost]
         public void Post([FromBody] IchIcsr ichIcsr)
         {
-            commandBus.Send(new RegisterCaseCommand(Guid.NewGuid(), Guid.NewGuid(), $"{ichIcsr.SafetyReport.SafetyReportId} - {ichIcsr.SafetyReport.SafetyReportVersion}", DateTime.Now));
+            commandBus.Send(new ImportCaseCommand(Guid.NewGuid(), Guid.NewGuid(), $"{ichIcsr.SafetyReport.SafetyReportId} - {ichIcsr.SafetyReport.SafetyReportVersion}", DateTime.Now));
         }
 
         #endregion API
