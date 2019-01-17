@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Umc.VigiFlow.Adapters.Primary.APIApp
+namespace Umc.VigiFlow.Adapters.Primary.IntegrationApp
 {
     public class Program
     {

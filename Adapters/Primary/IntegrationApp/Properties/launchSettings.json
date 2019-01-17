@@ -3,12 +3,12 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost/APIApp",
+      "applicationUrl": "http://localhost/IntegrationApp",
       "sslPort": 0
     },
     "iisExpress": {
-      "applicationUrl": "http://localhost:60882",
-      "sslPort": 0
+      "applicationUrl": "http://localhost:50044",
+      "sslPort": 44322
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -16,18 +16,18 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/cases",
+      "launchUrl": "api/values",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "APIApp": {
+    "IntegrationApp": {
       "commandName": "IIS",
       "launchUrl": "api/values",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:5000"
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
     }
   }
 }

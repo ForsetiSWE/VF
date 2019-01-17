@@ -12,7 +12,7 @@ using Umc.VigiFlow.Adapters.Secondary.SimpleCommandValidator;
 using Umc.VigiFlow.Adapters.Secondary.SimpleEventBus;
 using Umc.VigiFlow.Core.VigiFlowCore;
 
-namespace Umc.VigiFlow.Adapters.Primary.APIApp
+namespace Umc.VigiFlow.Adapters.Primary.IntegrationApp
 {
     public class Startup
     {
@@ -29,15 +29,6 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        public void ConfigureContainer(ContainerBuilder containerBuilder)
-        {
-            // Setup DI for VigiFlowCore
-            containerBuilder.RegisterModule(new VigiFlowCoreAutofacModule());
-
-            // Setup DI for Secondary adapters used
-            RegisterSecondaryAdapters(containerBuilder);
-        }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -45,8 +36,22 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
 
+            app.UseHttpsRedirection();
             app.UseMvc();
+        }
+
+        public void ConfigureContainer(ContainerBuilder containerBuilder)
+        {
+            // Setup DI for VigiFlowCore
+            containerBuilder.RegisterModule(new VigiFlowCoreAutofacModule());
+
+            // Setup DI for Secondary adapters used
+            RegisterSecondaryAdapters(containerBuilder);
         }
 
         #region Private
@@ -62,5 +67,6 @@ namespace Umc.VigiFlow.Adapters.Primary.APIApp
         }
 
         #endregion Private
+
     }
 }

@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>Umc.VigiFlow.Adapters.Primary.ImportAPIApp</AssemblyName>
-    <RootNamespace>Umc.VigiFlow.Adapters.Primary.ImportAPIApp</RootNamespace>
+    <AssemblyName>Umc.VigiFlow.Adapters.Primary.IntegrationApp</AssemblyName>
+    <RootNamespace>Umc.VigiFlow.Adapters.Primary.IntegrationApp</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,14 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.8.1" />
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="MongoDB.Driver" Version="2.7.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Components\CaseComponent\CaseComponent.csproj" />
+    <ProjectReference Include="..\..\..\Core\Ports\Ports.csproj" />
     <ProjectReference Include="..\..\..\Core\VigiFlowCore\VigiFlowCore.csproj" />
     <ProjectReference Include="..\..\Secondary\MongoDBAuditTrailPersistance\MongoDBAuditTrailPersistance.csproj" />
     <ProjectReference Include="..\..\Secondary\MongoDBPersistance\MongoDBPersistance.csproj" />
@@ -26,6 +25,12 @@
     <ProjectReference Include="..\..\Secondary\SimpleCommandBus\SimpleCommandBus.csproj" />
     <ProjectReference Include="..\..\Secondary\SimpleCommandValidator\SimpleCommandValidator.csproj" />
     <ProjectReference Include="..\..\Secondary\SimpleEventBus\SimpleEventBus.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Autofac.Extensions.DependencyInjection">
+      <HintPath>..\..\..\..\..\..\.nuget\packages\autofac.extensions.dependencyinjection\4.3.1\lib\netstandard2.0\Autofac.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
