@@ -1,7 +1,10 @@
-﻿namespace Umc.VigiFlow.Adapters.Primary.IntegrationApp.Models
+﻿using System.Collections.Generic;
+
+namespace Umc.VigiFlow.Adapters.Primary.IntegrationApp.Models
 {
     public class IchIcsr
     {
-        public SafetyReport SafetyReport { get; set; }
+        public string MessageNumb { get; set; }
+        public List<SafetyReport> SafetyReports { get; set; }
     }
 }

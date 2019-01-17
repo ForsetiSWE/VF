@@ -3,19 +3,19 @@ using Umc.VigiFlow.Core.SharedKernel.Models;
 
 namespace Umc.VigiFlow.Core.Components.CaseComponent.Domain.Models
 {
-    public class HistoricCase : Entity
+    public class ImportItem : Entity
     {
         #region Properties
 
-        public Case Case { get; private set; }
-
+        public string Description { get; private set; }
+        
         #endregion Properties
 
         #region Setup
 
-        public HistoricCase(Guid id, Case @case) : base(id)
+        public ImportItem(Guid id, string description) : base(id)
         {
-            Case = @case;
+            Description = description;
         }
 
         #endregion Setup

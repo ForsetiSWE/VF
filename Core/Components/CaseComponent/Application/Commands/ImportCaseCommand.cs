@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Umc.VigiFlow.Core.SharedKernel.Commands;
 
 namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
@@ -7,15 +8,15 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands
     {
         #region Setup
 
-        public readonly Guid CaseId;
-        public readonly string Description;
-        public readonly DateTime InitialDate;
+        public readonly Guid ImportId;
+        public readonly string ImportIdentifier;
+        public readonly List<(Guid importItemId, string description)> ImportItems;
 
-        public ImportCaseCommand(Guid commandId, Guid caseId, string description, DateTime initialDate, Guid? originFromCommandId = null) : base(commandId, originFromCommandId)
+        public ImportCaseCommand(Guid commandId, Guid importId, string importIdentifier, List<(Guid importItemId, string description)> importItems, Guid? originFromCommandId = null) : base(commandId, originFromCommandId)
         {
-            CaseId = caseId;
-            Description = description;
-            InitialDate = initialDate;
+            ImportId = importId;
+            ImportIdentifier = importIdentifier;
+            ImportItems = importItems;
         }
 
         #endregion Setup

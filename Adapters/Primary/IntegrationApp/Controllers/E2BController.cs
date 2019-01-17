@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Umc.VigiFlow.Adapters.Primary.IntegrationApp.Models;
 using Umc.VigiFlow.Core.Components.CaseComponent.Application.Commands;
@@ -27,7 +28,9 @@ namespace Umc.VigiFlow.Adapters.Primary.IntegrationApp.Controllers
         [HttpPost]
         public void Post([FromBody] IchIcsr ichIcsr)
         {
-            commandBus.Send(new ImportCaseCommand(Guid.NewGuid(), Guid.NewGuid(), $"{ichIcsr.SafetyReport.SafetyReportId} - {ichIcsr.SafetyReport.SafetyReportVersion}", DateTime.Now));
+            commandBus.Send(new ImportCaseCommand(Guid.NewGuid(), Guid.NewGuid(), ichIcsr.MessageNumb,
+                ichIcsr.SafetyReports.Select(safetyReport =>
+                    (importItemId: Guid.NewGuid(), description: safetyReport.SafetyReportId)).ToList()));
         }
 
         #endregion API

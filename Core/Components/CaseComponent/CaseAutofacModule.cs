@@ -27,12 +27,14 @@ namespace Umc.VigiFlow.Core.Components.CaseComponent
         {
             containerBuilder.RegisterType<CaseRepository>().As<ICaseRepository>();
             containerBuilder.RegisterType<HistoricCaseRepository>().As<IHistoricCaseRepository>();
+            containerBuilder.RegisterType<ImportRepository>().As<IImportRepository>();
         }
 
         private static void RegisterServices(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterType<CaseService>().As<ICaseService>();
             containerBuilder.RegisterType<HistoricCaseService>().As<IHistoricCaseService>();
+            containerBuilder.RegisterType<ImportService>().As<IImportService>();
         }
 
         private static void RegisterCommandHandlers(ContainerBuilder containerBuilder)
