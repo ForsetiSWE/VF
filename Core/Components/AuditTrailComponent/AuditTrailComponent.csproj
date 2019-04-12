@@ -13,6 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.7.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Ports\Ports.csproj" />
     <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj" />
   </ItemGroup>
